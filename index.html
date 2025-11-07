@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Edit Quest: The Style Guide Game - Learn MLA, APA, and CMS style conventions through interactive, gamified challenges.">
+  <title>Edit Quest: The Style Guide Game</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    /* Landing Page Specific Styles */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(135deg, #FAF9F7 0%, #EDF2F7 50%, #E2E8F0 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '✏️';
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.05;
+      top: 10%;
+      left: 10%;
+      animation: floatSlow 20s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '📚';
+      position: absolute;
+      font-size: 150px;
+      opacity: 0.05;
+      bottom: 15%;
+      right: 15%;
+      animation: floatSlow 25s ease-in-out infinite reverse;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: var(--spacing-2xl);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-family: var(--font-heading);
+      margin-bottom: var(--spacing-lg);
+      background: linear-gradient(135deg, var(--color-mla), var(--color-apa), var(--color-cms));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: var(--color-text-light);
+      margin-bottom: var(--spacing-2xl);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-description {
+      font-size: var(--font-size-lg);
+      line-height: 1.8;
+      margin-bottom: var(--spacing-3xl);
+      color: var(--color-text);
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.4s ease-out;
+    }
+
+    .hero-cta .btn {
+      padding: var(--spacing-lg) var(--spacing-3xl);
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Features Section */
+    .features {
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      background-color: var(--color-white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-2xl);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: var(--spacing-2xl);
+      border-radius: var(--border-radius-lg);
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(44, 122, 123, 0.05));
+      transition: transform var(--transition-base);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .feature-icon {
+      font-size: 4rem;
+      margin-bottom: var(--spacing-lg);
+      display: block;
+    }
+
+    .feature-title {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-md);
+      color: var(--color-black);
+    }
+
+    .feature-description {
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* Style Guide Preview */
+    .style-preview {
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      background: linear-gradient(135deg, #FAF9F7 0%, #EDF2F7 100%);
+    }
+
+    .style-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-xl);
+      max-width: var(--max-width);
+      margin: var(--spacing-2xl) auto 0;
+    }
+
+    .style-card-preview {
+      padding: var(--spacing-2xl);
+      border-radius: var(--border-radius-lg);
+      background-color: var(--color-white);
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-base);
+    }
+
+    .style-card-preview:hover {
+      transform: scale(1.05);
+    }
+
+    .style-icon {
+      font-size: 5rem;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .style-name {
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .style-card-preview.mla {
+      border-top: 6px solid var(--color-mla);
+    }
+
+    .style-card-preview.mla .style-name {
+      color: var(--color-mla);
+    }
+
+    .style-card-preview.apa {
+      border-top: 6px solid var(--color-apa);
+    }
+
+    .style-card-preview.apa .style-name {
+      color: var(--color-apa);
+    }
+
+    .style-card-preview.cms {
+      border-top: 6px solid var(--color-cms);
+    }
+
+    .style-card-preview.cms .style-name {
+      color: var(--color-cms);
+    }
+  </style>
+</head>
+<body class="bg-animated">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Edit Quest</h1>
+      <p class="hero-subtitle">The Style Guide Game</p>
+      <p class="hero-description">
+        Master MLA, APA, and CMS style conventions through fun, interactive challenges.
+        Level up your editing skills, earn badges, and become a Master Stylist!
+      </p>
+      <div class="hero-cta">
+        <a href="style-selection.html" class="btn btn-primary btn-lg">Start Your Quest</a>
+        <a href="help.html" class="btn btn-outline btn-lg">How to Play</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="text-center" style="margin-bottom: var(--spacing-3xl);">Quest Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🎮</span>
+          <h3 class="feature-title">Gamified Learning</h3>
+          <p class="feature-description">
+            Earn points, build streaks, and unlock badges as you master style conventions.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">📖</span>
+          <h3 class="feature-title">Interactive Lessons</h3>
+          <p class="feature-description">
+            Learn through hands-on challenges with instant feedback and detailed explanations.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🏆</span>
+          <h3 class="feature-title">Level Progression</h3>
+          <p class="feature-description">
+            Progress from Novice Editor to Master Stylist across three difficulty tiers.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🎯</span>
+          <h3 class="feature-title">Three Style Guides</h3>
+          <p class="feature-description">
+            Master MLA, APA, and Chicago Manual of Style in themed adventure regions.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <h3 class="feature-title">Dynamic Challenges</h3>
+          <p class="feature-description">
+            Multiple question types including drag-and-drop, multiple choice, and interactive games.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">💾</span>
+          <h3 class="feature-title">Track Progress</h3>
+          <p class="feature-description">
+            Your progress is saved locally, so you can continue your quest anytime.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Style Guide Preview -->
+  <section class="style-preview">
+    <div class="container">
+      <h2 class="text-center" style="margin-bottom: var(--spacing-2xl);">Choose Your Path</h2>
+      <div class="style-preview-grid">
+        <div class="style-card-preview mla">
+          <div class="style-icon">📘</div>
+          <h3 class="style-name">MLA</h3>
+          <p class="feature-description">
+            Modern Language Association style for humanities and literature
+          </p>
+        </div>
+
+        <div class="style-card-preview apa">
+          <div class="style-icon">📗</div>
+          <h3 class="style-name">APA</h3>
+          <p class="feature-description">
+            American Psychological Association style for social sciences
+          </p>
+        </div>
+
+        <div class="style-card-preview cms">
+          <div class="style-icon">📙</div>
+          <h3 class="style-name">CMS</h3>
+          <p class="feature-description">
+            Chicago Manual of Style for history and publishing
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: var(--spacing-3xl);">
+        <a href="style-selection.html" class="btn btn-cms btn-lg">Begin Your Adventure</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script>
+    // Initialize storage on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      EditQuestStorage.init();
+      console.log('Edit Quest initialized!');
+    });
+  </script>
+</body>
+</html>

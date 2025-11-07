@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Your Style Guide - Edit Quest</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--color-mla), var(--color-apa), var(--color-cms));
+      padding: var(--spacing-2xl) var(--spacing-lg);
+      text-align: center;
+      color: var(--color-white);
+    }
+
+    .page-header h1 {
+      color: var(--color-white);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .page-content {
+      min-height: calc(100vh - 200px);
+      padding: var(--spacing-3xl) var(--spacing-lg);
+    }
+
+    .style-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--spacing-2xl);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .style-card {
+      background-color: var(--color-white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: var(--spacing-2xl);
+      text-align: center;
+      transition: all var(--transition-base);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .style-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--color-info);
+      transition: height var(--transition-base);
+    }
+
+    .style-card.mla::before {
+      background: linear-gradient(90deg, var(--color-mla-light), var(--color-mla));
+    }
+
+    .style-card.apa::before {
+      background: linear-gradient(90deg, var(--color-apa-light), var(--color-apa));
+    }
+
+    .style-card.cms::before {
+      background: linear-gradient(90deg, var(--color-cms-light), var(--color-cms));
+    }
+
+    .style-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .style-card:hover::before {
+      height: 12px;
+    }
+
+    .style-card-icon {
+      font-size: 6rem;
+      margin-bottom: var(--spacing-lg);
+      display: block;
+    }
+
+    .style-card-title {
+      font-size: var(--font-size-3xl);
+      font-weight: 900;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .style-card.mla .style-card-title {
+      color: var(--color-mla);
+    }
+
+    .style-card.apa .style-card-title {
+      color: var(--color-apa);
+    }
+
+    .style-card.cms .style-card-title {
+      color: var(--color-cms);
+    }
+
+    .style-card-description {
+      color: var(--color-text-light);
+      margin-bottom: var(--spacing-xl);
+      line-height: 1.6;
+    }
+
+    .style-card-stats {
+      display: flex;
+      justify-content: space-around;
+      padding: var(--spacing-lg) 0;
+      border-top: 2px solid var(--color-bg);
+      margin-top: var(--spacing-lg);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      display: block;
+    }
+
+    .style-card.mla .stat-value {
+      color: var(--color-mla);
+    }
+
+    .style-card.apa .stat-value {
+      color: var(--color-apa);
+    }
+
+    .style-card.cms .stat-value {
+      color: var(--color-cms);
+    }
+
+    .stat-label {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: var(--spacing-xs);
+    }
+
+    .progress-bar {
+      margin-top: var(--spacing-md);
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: var(--spacing-3xl);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto var(--spacing-2xl);
+    }
+  </style>
+</head>
+<body class="bg-animated">
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Choose Your Style Guide</h1>
+    <p>Select a style guide to begin your editing quest</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="container">
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        <a href="index.html" class="btn btn-ghost">← Back to Home</a>
+        <a href="profile.html" class="btn btn-ghost">View Profile</a>
+      </div>
+
+      <!-- Style Guide Cards -->
+      <div class="style-cards">
+        <!-- MLA Card -->
+        <div class="style-card mla card-interactive" onclick="selectGuide('mla')">
+          <span class="style-card-icon">📘</span>
+          <h2 class="style-card-title">MLA Style</h2>
+          <p class="style-card-description">
+            Modern Language Association format used in humanities, literature, and language studies.
+          </p>
+
+          <div class="style-card-stats">
+            <div class="stat">
+              <span class="stat-value" id="mla-progress">0%</span>
+              <span class="stat-label">Complete</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="mla-score">0</span>
+              <span class="stat-label">Score</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="mla-badges">0</span>
+              <span class="stat-label">Badges</span>
+            </div>
+          </div>
+
+          <div class="progress-bar">
+            <div class="progress-fill progress-fill-mla" id="mla-progress-bar" style="width: 0%"></div>
+          </div>
+
+          <div style="margin-top: var(--spacing-lg);">
+            <span class="btn btn-mla btn-block">Start MLA Quest</span>
+          </div>
+        </div>
+
+        <!-- APA Card -->
+        <div class="style-card apa card-interactive" onclick="selectGuide('apa')">
+          <span class="style-card-icon">📗</span>
+          <h2 class="style-card-title">APA Style</h2>
+          <p class="style-card-description">
+            American Psychological Association format used in social sciences, psychology, and education.
+          </p>
+
+          <div class="style-card-stats">
+            <div class="stat">
+              <span class="stat-value" id="apa-progress">0%</span>
+              <span class="stat-label">Complete</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="apa-score">0</span>
+              <span class="stat-label">Score</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="apa-badges">0</span>
+              <span class="stat-label">Badges</span>
+            </div>
+          </div>
+
+          <div class="progress-bar">
+            <div class="progress-fill progress-fill-apa" id="apa-progress-bar" style="width: 0%"></div>
+          </div>
+
+          <div style="margin-top: var(--spacing-lg);">
+            <span class="btn btn-apa btn-block">Start APA Quest</span>
+          </div>
+        </div>
+
+        <!-- CMS Card -->
+        <div class="style-card cms card-interactive" onclick="selectGuide('cms')">
+          <span class="style-card-icon">📙</span>
+          <h2 class="style-card-title">CMS Style</h2>
+          <p class="style-card-description">
+            Chicago Manual of Style format used in history, publishing, and the arts.
+          </p>
+
+          <div class="style-card-stats">
+            <div class="stat">
+              <span class="stat-value" id="cms-progress">0%</span>
+              <span class="stat-label">Complete</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="cms-score">0</span>
+              <span class="stat-label">Score</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="cms-badges">0</span>
+              <span class="stat-label">Badges</span>
+            </div>
+          </div>
+
+          <div class="progress-bar">
+            <div class="progress-fill progress-fill-cms" id="cms-progress-bar" style="width: 0%"></div>
+          </div>
+
+          <div style="margin-top: var(--spacing-lg);">
+            <span class="btn btn-cms btn-block">Start CMS Quest</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="back-button">
+        <a href="help.html" class="btn btn-outline">How to Play</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/scoring.js"></script>
+  <script>
+    // Load and display user progress
+    document.addEventListener('DOMContentLoaded', function() {
+      const userData = EditQuestStorage.load();
+
+      // Update each style guide card
+      ['mla', 'apa', 'cms'].forEach(guide => {
+        const progress = userData.progress[guide];
+
+        // Calculate completion percentage (9 total levels: 3 regions × 3 difficulties)
+        const completion = ScoringSystem.calculateCompletion(progress, 9);
+
+        // Update stats
+        document.getElementById(`${guide}-progress`).textContent = `${completion}%`;
+        document.getElementById(`${guide}-score`).textContent = ScoringSystem.formatScore(progress.totalScore);
+        document.getElementById(`${guide}-badges`).textContent = progress.badges.length;
+        document.getElementById(`${guide}-progress-bar`).style.width = `${completion}%`;
+      });
+    });
+
+    // Navigate to level selection
+    function selectGuide(guide) {
+      window.location.href = `level-selection.html?guide=${guide}`;
+    }
+  </script>
+</body>
+</html>
