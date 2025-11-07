@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson - Edit Quest</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .lesson-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #FAF9F7 0%, #EDF2F7 100%);
+    }
+
+    .lesson-header {
+      background: var(--color-info);
+      padding: var(--spacing-2xl) var(--spacing-lg);
+      text-align: center;
+      color: var(--color-white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .lesson-header.mla {
+      background: linear-gradient(135deg, var(--color-mla-light), var(--color-mla-dark));
+    }
+
+    .lesson-header.apa {
+      background: linear-gradient(135deg, var(--color-apa-light), var(--color-apa-dark));
+    }
+
+    .lesson-header.cms {
+      background: linear-gradient(135deg, var(--color-cms-light), var(--color-cms-dark));
+    }
+
+    .lesson-header h1 {
+      color: var(--color-white);
+      margin-bottom: var(--spacing-sm);
+      font-size: var(--font-size-3xl);
+    }
+
+    .lesson-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .lesson-card {
+      background-color: var(--color-white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: var(--spacing-3xl);
+      margin-bottom: var(--spacing-2xl);
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .lesson-icon {
+      font-size: 4rem;
+      text-align: center;
+      display: block;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .lesson-title {
+      font-size: var(--font-size-2xl);
+      color: var(--color-black);
+      margin-bottom: var(--spacing-xl);
+      text-align: center;
+    }
+
+    .lesson-section {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .lesson-section h3 {
+      color: var(--color-info);
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .lesson-section.mla h3 {
+      color: var(--color-mla);
+    }
+
+    .lesson-section.apa h3 {
+      color: var(--color-apa);
+    }
+
+    .lesson-section.cms h3 {
+      color: var(--color-cms);
+    }
+
+    .lesson-text {
+      line-height: 1.8;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .lesson-example {
+      background-color: var(--color-bg);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--color-info);
+      margin: var(--spacing-md) 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .lesson-example.mla {
+      border-left-color: var(--color-mla);
+    }
+
+    .lesson-example.apa {
+      border-left-color: var(--color-apa);
+    }
+
+    .lesson-example.cms {
+      border-left-color: var(--color-cms);
+    }
+
+    .lesson-tip {
+      background-color: rgba(66, 153, 225, 0.1);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius);
+      margin: var(--spacing-lg) 0;
+      border-left: 4px solid var(--color-info);
+    }
+
+    .lesson-tip strong {
+      color: var(--color-info);
+    }
+
+    .lesson-list {
+      margin-left: var(--spacing-xl);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .lesson-list li {
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.6;
+    }
+
+    .lesson-actions {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--spacing-2xl);
+    }
+
+    .progress-indicator {
+      text-align: center;
+      color: var(--color-text-light);
+      margin-bottom: var(--spacing-xl);
+    }
+  </style>
+</head>
+<body>
+  <div class="lesson-container">
+    <!-- Lesson Header -->
+    <header class="lesson-header" id="lesson-header">
+      <h1 id="lesson-heading">Quick Lesson</h1>
+      <p id="lesson-subtitle">Learn the key concepts before you begin</p>
+    </header>
+
+    <!-- Lesson Content -->
+    <main class="lesson-content">
+      <div class="progress-indicator">
+        📖 Lesson · <span id="difficulty-label">Beginner</span> Level
+      </div>
+
+      <div class="lesson-card" id="lesson-card">
+        <!-- Content will be dynamically loaded -->
+      </div>
+
+      <div class="lesson-actions">
+        <button class="btn btn-outline" onclick="skipLesson()">Skip Lesson</button>
+        <button class="btn btn-primary btn-lg" onclick="startQuiz()">Start Quiz →</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Get parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const guide = urlParams.get('guide') || 'mla';
+    const region = urlParams.get('region') || 'comma-castle';
+    const difficulty = urlParams.get('difficulty') || 'beginner';
+
+    // Apply theme
+    const header = document.getElementById('lesson-header');
+    header.classList.add(guide);
+
+    // Update labels
+    const guideNames = { mla: 'MLA', apa: 'APA', cms: 'CMS' };
+    const difficultyNames = { beginner: 'Beginner', intermediate: 'Intermediate', expert: 'Expert' };
+
+    document.getElementById('difficulty-label').textContent = difficultyNames[difficulty];
+
+    // Lesson content database
+    const lessons = {
+      'mla-comma-castle-beginner': {
+        icon: '🏰',
+        title: 'Comma Castle: Grammar Basics',
+        sections: [
+          {
+            heading: 'The Oxford Comma (Serial Comma)',
+            text: 'In MLA style, you should always use the Oxford comma (also called the serial comma) before the conjunction in a series of three or more items.',
+            example: 'I need to buy apples, oranges, and bananas.',
+            tip: 'The comma before "and" is required in MLA style.'
+          },
+          {
+            heading: 'Commas with Introductory Elements',
+            text: 'Place a comma after introductory words, phrases, or clauses that come before the main clause.',
+            example: 'After the lecture, we went to dinner.\nHowever, the results were inconclusive.',
+            tip: 'If the introductory element is short (3-4 words), the comma is optional but recommended.'
+          },
+          {
+            heading: 'Commas with Coordinating Conjunctions',
+            text: 'When joining two independent clauses with a coordinating conjunction (for, and, nor, but, or, yet, so), place a comma before the conjunction.',
+            example: 'She studied hard, but she still failed the test.',
+            tip: 'Both clauses must be independent (able to stand alone as sentences).'
+          }
+        ]
+      },
+      'mla-mla-mountain-beginner': {
+        icon: '⛰️',
+        title: 'MLA Mountain: Citation Basics',
+        sections: [
+          {
+            heading: 'Basic Book Citation Format',
+            text: 'MLA 9th edition uses a simplified format for citing books.',
+            example: 'Author Last Name, First Name. Title of Book. Publisher, Year.',
+            tip: 'Only the first word of the title and proper nouns are capitalized. The title should be italicized.'
+          },
+          {
+            heading: 'In-Text Citations',
+            text: 'MLA in-text citations include the author\'s last name and page number in parentheses.',
+            example: 'According to Smith, "the results were significant" (23).\n(Smith 23)',
+            tip: 'If you mention the author in your sentence, only include the page number in parentheses.'
+          },
+          {
+            heading: 'Title Formatting',
+            text: 'Italicize titles of longer, standalone works like books and journals. Use quotation marks for shorter works like articles and chapters.',
+            example: 'Book: The Great Gatsby\nArticle: "Modern Citation Practices"',
+            tip: 'When in doubt, ask: Is this work published independently? If yes, italicize it.'
+          }
+        ]
+      },
+      'apa-comma-castle-beginner': {
+        icon: '🏰',
+        title: 'Comma Castle: APA Punctuation',
+        sections: [
+          {
+            heading: 'The Serial Comma in APA',
+            text: 'APA 7th edition requires the use of the Oxford comma in all lists.',
+            example: 'The study examined three variables: age, height, and weight.',
+            tip: 'This is consistent across all APA writing, including reference lists.'
+          },
+          {
+            heading: 'Commas in Lists After a Colon',
+            text: 'Use a colon to introduce a list after a complete independent clause, then separate items with commas.',
+            example: 'Participants completed three tasks: a survey, an interview, and a performance test.',
+            tip: 'The clause before the colon must be able to stand alone as a complete sentence.'
+          }
+        ]
+      },
+      'apa-apa-abyss-beginner': {
+        icon: '🌊',
+        title: 'APA Abyss: Reference Basics',
+        sections: [
+          {
+            heading: 'Basic Book Reference Format',
+            text: 'APA 7th edition format for books uses sentence case for titles.',
+            example: 'Author, A. A. (Year). Title of book. Publisher.',
+            tip: 'Only capitalize the first word of the title and subtitle, and proper nouns.'
+          },
+          {
+            heading: 'In-Text Citations',
+            text: 'APA uses author-date citation format with page numbers for direct quotes.',
+            example: '(Smith, 2020, p. 45)\nSmith (2020) found that "results were significant" (p. 45).',
+            tip: 'Use "p." for one page and "pp." for multiple pages.'
+          },
+          {
+            heading: 'Title Formatting',
+            text: 'Italicize book titles and journal titles. Article titles are not italicized and use sentence case.',
+            example: 'Book: The great gatsby\nJournal: Journal of Psychology',
+            tip: 'Remember: sentence case means only the first word and proper nouns are capitalized.'
+          }
+        ]
+      },
+      'cms-comma-castle-beginner': {
+        icon: '🏰',
+        title: 'Comma Castle: Chicago Punctuation',
+        sections: [
+          {
+            heading: 'The Oxford Comma',
+            text: 'The Chicago Manual of Style recommends using the Oxford comma for clarity.',
+            example: 'The flag is red, white, and blue.',
+            tip: 'While recommended, some publishers may have different house styles.'
+          },
+          {
+            heading: 'Commas with Dates',
+            text: 'When a date appears in month-day-year format, use commas to separate elements.',
+            example: 'The conference was held on March 15, 2023, in Boston.',
+            tip: 'Note the comma after the year when the sentence continues.'
+          }
+        ]
+      },
+      'cms-cms-city-beginner': {
+        icon: '🏛️',
+        title: 'CMS City: Citation & Style Basics',
+        sections: [
+          {
+            heading: 'Title Capitalization: Headline Style',
+            text: 'Chicago uses headline style: capitalize the first and last words and all major words.',
+            example: 'The Story of a Young Writer\nA Guide to Better Writing',
+            tip: 'Do not capitalize articles (a, an, the), coordinating conjunctions, or prepositions, unless they are the first or last word.'
+          },
+          {
+            heading: 'Bibliography Format',
+            text: 'Chicago bibliography entries list the author\'s name inverted (last name first).',
+            example: 'Smith, John. The Great Novel. New York: Penguin Press, 2020.',
+            tip: 'Include the place of publication, publisher, and year.'
+          },
+          {
+            heading: 'Footnote Format (First Reference)',
+            text: 'The first footnote reference includes full publication information.',
+            example: 'John Smith, The Great Novel (New York: Penguin Press, 2020), 45.',
+            tip: 'Author name is in normal order (first name first) in footnotes.'
+          }
+        ]
+      }
+    };
+
+    // Load lesson content
+    function loadLesson() {
+      const lessonKey = `${guide}-${region}-${difficulty}`;
+      const lesson = lessons[lessonKey];
+
+      if (!lesson) {
+        // Default lesson if specific one not found
+        document.getElementById('lesson-card').innerHTML = `
+          <span class="lesson-icon">📚</span>
+          <h2 class="lesson-title">Get Ready!</h2>
+          <p class="lesson-text" style="text-align: center;">
+            You're about to test your knowledge of ${guideNames[guide]} style.
+            Read each question carefully and remember to review the explanations after each answer.
+          </p>
+          <div class="lesson-tip">
+            <strong>💡 Tip:</strong> Build streaks by answering multiple questions correctly in a row for bonus points!
+          </div>
+        `;
+        return;
+      }
+
+      // Render full lesson
+      let html = `
+        <span class="lesson-icon">${lesson.icon}</span>
+        <h2 class="lesson-title">${lesson.title}</h2>
+      `;
+
+      lesson.sections.forEach(section => {
+        html += `
+          <div class="lesson-section ${guide}">
+            <h3>${section.heading}</h3>
+            <p class="lesson-text">${section.text}</p>
+            ${section.example ? `
+              <div class="lesson-example ${guide}">
+                <strong>Example:</strong><br>
+                ${section.example.replace(/\n/g, '<br>')}
+              </div>
+            ` : ''}
+            ${section.tip ? `
+              <div class="lesson-tip">
+                <strong>💡 Tip:</strong> ${section.tip}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      });
+
+      document.getElementById('lesson-card').innerHTML = html;
+    }
+
+    // Initialize
+    loadLesson();
+
+    // Navigation functions
+    function startQuiz() {
+      window.location.href = `game.html?guide=${guide}&region=${region}&difficulty=${difficulty}`;
+    }
+
+    function skipLesson() {
+      if (confirm('Are you sure you want to skip the lesson? It contains helpful information for the quiz.')) {
+        startQuiz();
+      }
+    }
+  </script>
+</body>
+</html>

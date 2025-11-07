@@ -149,6 +149,19 @@ a:hover {
   padding: var(--spacing-3xl) 0;
 }
 
+/* Vertical Centering Utilities */
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+}
+
 .text-center {
   text-align: center;
 }
