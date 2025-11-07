@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Profile - Edit Quest</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--color-mla), var(--color-apa), var(--color-cms));
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      text-align: center;
+      color: var(--color-white);
+    }
+
+    .page-header h1 {
+      color: var(--color-white);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .rank-display {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md) var(--spacing-xl);
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: var(--border-radius-full);
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      margin-top: var(--spacing-md);
+    }
+
+    .page-content {
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      min-height: calc(100vh - 300px);
+    }
+
+    .profile-section {
+      background-color: var(--color-white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--spacing-2xl);
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .section-title {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--spacing-xl);
+      padding-bottom: var(--spacing-md);
+      border-bottom: 2px solid var(--color-bg);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: var(--spacing-lg);
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(44, 122, 123, 0.05));
+      border-radius: var(--border-radius);
+    }
+
+    .stat-card-value {
+      font-size: var(--font-size-3xl);
+      font-weight: 900;
+      color: var(--color-info);
+      display: block;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .stat-card-label {
+      color: var(--color-text-light);
+      font-size: var(--font-size-sm);
+    }
+
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .badge-item {
+      text-align: center;
+      padding: var(--spacing-lg);
+      background-color: var(--color-bg);
+      border-radius: var(--border-radius);
+      transition: transform var(--transition-fast);
+    }
+
+    .badge-item:hover {
+      transform: scale(1.05);
+    }
+
+    .badge-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .badge-name {
+      font-weight: 600;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .badge-description {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-light);
+    }
+
+    .progress-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-xl);
+    }
+
+    .progress-card {
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      background-color: var(--color-white);
+      border-left: 6px solid var(--color-info);
+    }
+
+    .progress-card.mla {
+      border-left-color: var(--color-mla);
+    }
+
+    .progress-card.apa {
+      border-left-color: var(--color-apa);
+    }
+
+    .progress-card.cms {
+      border-left-color: var(--color-cms);
+    }
+
+    .progress-card-title {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .progress-card.mla .progress-card-title {
+      color: var(--color-mla);
+    }
+
+    .progress-card.apa .progress-card-title {
+      color: var(--color-apa);
+    }
+
+    .progress-card.cms .progress-card-title {
+      color: var(--color-cms);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: var(--spacing-xl);
+    }
+  </style>
+</head>
+<body class="bg-animated">
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1 id="player-name">Your Profile</h1>
+    <div class="rank-display" id="rank-display">
+      <span>🏆</span>
+      <span id="rank-name">Novice Editor</span>
+    </div>
+    <div style="margin-top: var(--spacing-lg);">
+      <strong>Total Points:</strong> <span id="total-points">0</span>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="container" style="max-width: 1400px;">
+      <!-- Navigation -->
+      <div class="nav-links">
+        <a href="index.html" class="btn btn-ghost">← Home</a>
+        <a href="style-selection.html" class="btn btn-primary">Continue Quest</a>
+      </div>
+
+      <!-- Overall Statistics -->
+      <section class="profile-section">
+        <h2 class="section-title">📊 Overall Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-card-value" id="total-games">0</span>
+            <span class="stat-card-label">Games Played</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-value" id="total-questions">0</span>
+            <span class="stat-card-label">Questions Answered</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-value" id="accuracy">0%</span>
+            <span class="stat-card-label">Accuracy</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card-value" id="longest-streak">0</span>
+            <span class="stat-card-label">Longest Streak</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Progress by Style Guide -->
+      <section class="profile-section">
+        <h2 class="section-title">📈 Progress by Style Guide</h2>
+        <div class="progress-cards">
+          <div class="progress-card mla">
+            <h3 class="progress-card-title">📘 MLA Style</h3>
+            <div style="margin-bottom: var(--spacing-md);">
+              <strong>Completion:</strong> <span id="mla-completion">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill progress-fill-mla" id="mla-progress-bar" style="width: 0%"></div>
+            </div>
+            <div style="margin-top: var(--spacing-lg); display: flex; justify-content: space-between;">
+              <div>
+                <strong>Score:</strong> <span id="mla-score">0</span>
+              </div>
+              <div>
+                <strong>Badges:</strong> <span id="mla-badges">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="progress-card apa">
+            <h3 class="progress-card-title">📗 APA Style</h3>
+            <div style="margin-bottom: var(--spacing-md);">
+              <strong>Completion:</strong> <span id="apa-completion">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill progress-fill-apa" id="apa-progress-bar" style="width: 0%"></div>
+            </div>
+            <div style="margin-top: var(--spacing-lg); display: flex; justify-content: space-between;">
+              <div>
+                <strong>Score:</strong> <span id="apa-score">0</span>
+              </div>
+              <div>
+                <strong>Badges:</strong> <span id="apa-badges">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="progress-card cms">
+            <h3 class="progress-card-title">📙 CMS Style</h3>
+            <div style="margin-bottom: var(--spacing-md);">
+              <strong>Completion:</strong> <span id="cms-completion">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill progress-fill-cms" id="cms-progress-bar" style="width: 0%"></div>
+            </div>
+            <div style="margin-top: var(--spacing-lg); display: flex; justify-content: space-between;">
+              <div>
+                <strong>Score:</strong> <span id="cms-score">0</span>
+              </div>
+              <div>
+                <strong>Badges:</strong> <span id="cms-badges">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Badges Collection -->
+      <section class="profile-section">
+        <h2 class="section-title">🏅 Badge Collection</h2>
+        <div class="badges-grid" id="badges-container">
+          <!-- Badges will be dynamically loaded -->
+        </div>
+      </section>
+
+      <!-- Actions -->
+      <section class="profile-section text-center">
+        <h2 class="section-title">⚙️ Settings</h2>
+        <div class="action-buttons">
+          <button class="btn btn-outline" onclick="exportProgress()">📥 Export Progress</button>
+          <button class="btn btn-error" onclick="resetProgress()">🔄 Reset All Progress</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/scoring.js"></script>
+
+  <script>
+    // Load profile data
+    document.addEventListener('DOMContentLoaded', function() {
+      loadProfile();
+    });
+
+    function loadProfile() {
+      const userData = EditQuestStorage.load();
+
+      // Update rank display
+      const rank = ScoringSystem.getRank(userData.achievements.totalPoints);
+      document.getElementById('rank-name').textContent = rank.name;
+      document.getElementById('total-points').textContent = ScoringSystem.formatScore(userData.achievements.totalPoints);
+
+      // Update overall stats
+      document.getElementById('total-games').textContent = userData.stats.totalGamesPlayed;
+      document.getElementById('total-questions').textContent = userData.stats.totalQuestionsAnswered;
+      document.getElementById('accuracy').textContent = Math.round(userData.stats.averageAccuracy) + '%';
+      document.getElementById('longest-streak').textContent = userData.stats.longestStreak;
+
+      // Update progress for each guide
+      ['mla', 'apa', 'cms'].forEach(guide => {
+        const progress = userData.progress[guide];
+        const completion = ScoringSystem.calculateCompletion(progress, 9);
+
+        document.getElementById(`${guide}-completion`).textContent = `${completion}%`;
+        document.getElementById(`${guide}-progress-bar`).style.width = `${completion}%`;
+        document.getElementById(`${guide}-score`).textContent = ScoringSystem.formatScore(progress.totalScore);
+        document.getElementById(`${guide}-badges`).textContent = progress.badges.length;
+      });
+
+      // Load badges
+      loadBadges(userData);
+    }
+
+    function loadBadges(userData) {
+      const container = document.getElementById('badges-container');
+      const allBadges = ScoringSystem.getAllBadges();
+      const earnedBadges = userData.achievements.allBadges;
+
+      if (earnedBadges.length === 0) {
+        container.innerHTML = '<p class="text-center" style="grid-column: 1/-1; color: var(--color-text-light);">No badges earned yet. Complete levels to earn badges!</p>';
+        return;
+      }
+
+      container.innerHTML = '';
+
+      earnedBadges.forEach(badgeId => {
+        const badge = allBadges[badgeId];
+        if (!badge) return;
+
+        const badgeEl = document.createElement('div');
+        badgeEl.className = 'badge-item';
+        badgeEl.innerHTML = `
+          <span class="badge-icon">${badge.icon}</span>
+          <div class="badge-name">${badge.name}</div>
+          <div class="badge-description">${badge.description}</div>
+        `;
+        container.appendChild(badgeEl);
+      });
+    }
+
+    function exportProgress() {
+      const data = EditQuestStorage.exportData();
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `edit-quest-progress-${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      alert('Progress exported successfully!');
+    }
+
+    function resetProgress() {
+      if (confirm('Are you sure you want to reset ALL progress? This cannot be undone!')) {
+        if (confirm('This will delete all your scores, badges, and progress. Are you absolutely sure?')) {
+          EditQuestStorage.reset();
+          alert('Progress reset successfully!');
+          location.reload();
+        }
+      }
+    }
+  </script>
+</body>
+</html>

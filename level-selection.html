@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level Selection - Edit Quest</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .page-header {
+      background: var(--color-info);
+      padding: var(--spacing-2xl) var(--spacing-lg);
+      text-align: center;
+      color: var(--color-white);
+    }
+
+    .page-header.mla {
+      background: linear-gradient(135deg, var(--color-mla-light), var(--color-mla-dark));
+    }
+
+    .page-header.apa {
+      background: linear-gradient(135deg, var(--color-apa-light), var(--color-apa-dark));
+    }
+
+    .page-header.cms {
+      background: linear-gradient(135deg, var(--color-cms-light), var(--color-cms-dark));
+    }
+
+    .page-header h1 {
+      color: var(--color-white);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .page-content {
+      min-height: calc(100vh - 200px);
+      padding: var(--spacing-3xl) var(--spacing-lg);
+    }
+
+    .region-section {
+      margin-bottom: var(--spacing-3xl);
+    }
+
+    .region-header {
+      text-align: center;
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .region-icon {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .region-title {
+      font-size: var(--font-size-3xl);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .region-description {
+      color: var(--color-text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .level-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .level-card {
+      background-color: var(--color-white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--spacing-xl);
+      transition: all var(--transition-base);
+      cursor: pointer;
+      position: relative;
+      border-left: 6px solid var(--color-info);
+    }
+
+    .level-card.beginner {
+      border-left-color: var(--color-success);
+    }
+
+    .level-card.intermediate {
+      border-left-color: var(--color-warning);
+    }
+
+    .level-card.expert {
+      border-left-color: var(--color-error);
+    }
+
+    .level-card:not(.locked):hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .level-card.locked {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .level-badge {
+      position: absolute;
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      padding: var(--spacing-xs) var(--spacing-md);
+      border-radius: var(--border-radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .level-badge.beginner {
+      background-color: var(--color-success);
+      color: var(--color-white);
+    }
+
+    .level-badge.intermediate {
+      background-color: var(--color-warning);
+      color: var(--color-white);
+    }
+
+    .level-badge.expert {
+      background-color: var(--color-error);
+      color: var(--color-white);
+    }
+
+    .level-title {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-md);
+      padding-right: var(--spacing-3xl);
+    }
+
+    .level-info {
+      display: flex;
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-md);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-light);
+    }
+
+    .level-info-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .level-status {
+      margin-top: var(--spacing-md);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid var(--color-bg);
+    }
+
+    .status-complete {
+      color: var(--color-success);
+      font-weight: 600;
+    }
+
+    .status-locked {
+      color: var(--color-text-light);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto var(--spacing-2xl);
+    }
+  </style>
+</head>
+<body class="bg-animated">
+  <!-- Page Header -->
+  <header class="page-header" id="page-header">
+    <h1 id="guide-title">Level Selection</h1>
+    <p id="guide-subtitle">Choose your challenge</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="container">
+      <!-- Navigation -->
+      <div class="nav-links">
+        <a href="style-selection.html" class="btn btn-ghost">← Back to Style Guides</a>
+        <a href="profile.html" class="btn btn-ghost">View Profile</a>
+      </div>
+
+      <!-- Levels will be dynamically loaded here -->
+      <div id="levels-container"></div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/question-bank.js"></script>
+  <script src="js/game-engine.js"></script>
+  <script>
+    // Get guide from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const guide = urlParams.get('guide') || 'mla';
+
+    // Apply theme
+    const header = document.getElementById('page-header');
+    header.classList.add(guide);
+
+    // Update title
+    const guideNames = {
+      mla: 'MLA Style',
+      apa: 'APA Style',
+      cms: 'Chicago Manual of Style'
+    };
+
+    document.getElementById('guide-title').textContent = guideNames[guide];
+    document.getElementById('guide-subtitle').textContent = 'Choose your challenge region and difficulty';
+
+    // Load user data
+    const userData = EditQuestStorage.load();
+    const progress = userData.progress[guide];
+
+    // Define regions
+    const regions = {
+      mla: [
+        {
+          id: 'comma-castle',
+          name: 'Comma Castle',
+          icon: '🏰',
+          description: 'Master grammar and punctuation rules in the ancient Comma Castle'
+        },
+        {
+          id: 'mla-mountain',
+          name: 'MLA Mountain',
+          icon: '⛰️',
+          description: 'Conquer citation challenges at the peak of MLA Mountain'
+        }
+      ],
+      apa: [
+        {
+          id: 'comma-castle',
+          name: 'Comma Castle',
+          icon: '🏰',
+          description: 'Master grammar and punctuation rules in the ancient Comma Castle'
+        },
+        {
+          id: 'apa-abyss',
+          name: 'APA Abyss',
+          icon: '🌊',
+          description: 'Navigate the depths of APA formatting and references'
+        }
+      ],
+      cms: [
+        {
+          id: 'comma-castle',
+          name: 'Comma Castle',
+          icon: '🏰',
+          description: 'Master grammar and punctuation rules in the ancient Comma Castle'
+        },
+        {
+          id: 'cms-city',
+          name: 'CMS City',
+          icon: '🏛️',
+          description: 'Perfect your stylistic choices in the grand CMS City'
+        }
+      ]
+    };
+
+    // Difficulties
+    const difficulties = [
+      {
+        id: 'beginner',
+        name: 'Beginner',
+        icon: '🌱',
+        description: 'Learn the basics',
+        points: '10-20 pts'
+      },
+      {
+        id: 'intermediate',
+        name: 'Intermediate',
+        icon: '⚡',
+        description: 'Test your skills',
+        points: '25-35 pts'
+      },
+      {
+        id: 'expert',
+        name: 'Expert',
+        icon: '🔥',
+        description: 'Master the rules',
+        points: '40-50 pts'
+      }
+    ];
+
+    // Render levels
+    const container = document.getElementById('levels-container');
+
+    regions[guide].forEach(region => {
+      const section = document.createElement('div');
+      section.className = 'region-section';
+
+      section.innerHTML = `
+        <div class="region-header">
+          <span class="region-icon">${region.icon}</span>
+          <h2 class="region-title">${region.name}</h2>
+          <p class="region-description">${region.description}</p>
+        </div>
+        <div class="level-cards" id="${region.id}-levels"></div>
+      `;
+
+      container.appendChild(section);
+
+      // Add difficulty levels
+      const levelCardsContainer = document.getElementById(`${region.id}-levels`);
+
+      difficulties.forEach((difficulty, index) => {
+        const levelId = `${guide}-${region.id}-${difficulty.id}`;
+        const isCompleted = progress.completed.includes(levelId);
+        const isLocked = index > 0 && !progress.completed.includes(`${guide}-${region.id}-${difficulties[index - 1].id}`);
+
+        const card = document.createElement('div');
+        card.className = `level-card ${difficulty.id} ${isLocked ? 'locked' : ''}`;
+
+        if (!isLocked) {
+          card.onclick = () => startLevel(region.id, difficulty.id);
+        }
+
+        card.innerHTML = `
+          <span class="level-badge ${difficulty.id}">${difficulty.name}</span>
+          <h3 class="level-title">${difficulty.name} ${region.name}</h3>
+          <div class="level-info">
+            <span class="level-info-item">${difficulty.icon} ${difficulty.description}</span>
+            <span class="level-info-item">💎 ${difficulty.points}</span>
+          </div>
+          <div class="level-status">
+            ${isLocked
+              ? '<span class="status-locked">🔒 Complete previous level to unlock</span>'
+              : isCompleted
+                ? '<span class="status-complete">✅ Completed</span>'
+                : '<span>Ready to play</span>'
+            }
+          </div>
+        `;
+
+        levelCardsContainer.appendChild(card);
+      });
+    });
+
+    // Start level
+    function startLevel(region, difficulty) {
+      window.location.href = `game.html?guide=${guide}&region=${region}&difficulty=${difficulty}`;
+    }
+  </script>
+</body>
+</html>

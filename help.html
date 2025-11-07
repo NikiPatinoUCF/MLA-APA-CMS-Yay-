@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play - Edit Quest</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--color-mla), var(--color-apa), var(--color-cms));
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      text-align: center;
+      color: var(--color-white);
+    }
+
+    .page-header h1 {
+      color: var(--color-white);
+    }
+
+    .page-content {
+      padding: var(--spacing-3xl) var(--spacing-lg);
+    }
+
+    .help-section {
+      background-color: var(--color-white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--spacing-2xl);
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .section-title {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-black);
+    }
+
+    .section-content {
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+
+    .section-content h3 {
+      color: var(--color-info);
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .section-content ul, .section-content ol {
+      margin-left: var(--spacing-xl);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .section-content li {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .feature-box {
+      padding: var(--spacing-lg);
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(44, 122, 123, 0.05));
+      border-radius: var(--border-radius);
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .rank-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--spacing-lg) 0;
+    }
+
+    .rank-table th,
+    .rank-table td {
+      padding: var(--spacing-md);
+      text-align: left;
+      border-bottom: 1px solid var(--color-bg);
+    }
+
+    .rank-table th {
+      background-color: var(--color-bg);
+      font-weight: 700;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding: var(--spacing-3xl) 0;
+    }
+  </style>
+</head>
+<body class="bg-animated">
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>How to Play Edit Quest</h1>
+    <p>Your guide to mastering MLA, APA, and CMS style conventions</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="container" style="max-width: 900px;">
+      <!-- Getting Started -->
+      <section class="help-section">
+        <h2 class="section-title">🎮 Getting Started</h2>
+        <div class="section-content">
+          <p>
+            Edit Quest is an interactive educational game that helps you master citation and style conventions
+            through fun, gamified challenges. Here's how to begin your journey:
+          </p>
+
+          <ol>
+            <li><strong>Choose a Style Guide:</strong> Select from MLA, APA, or Chicago Manual of Style</li>
+            <li><strong>Pick a Region:</strong> Each style guide has themed challenge areas like Comma Castle or MLA Mountain</li>
+            <li><strong>Select Difficulty:</strong> Start with Beginner and progress through Intermediate to Expert levels</li>
+            <li><strong>Answer Questions:</strong> Complete challenges to earn points, badges, and unlock new levels</li>
+            <li><strong>Track Progress:</strong> View your achievements and rank on your Profile page</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Challenge Types -->
+      <section class="help-section">
+        <h2 class="section-title">📝 Challenge Types</h2>
+        <div class="section-content">
+          <p>Edit Quest features multiple types of interactive challenges:</p>
+
+          <div class="feature-grid">
+            <div class="feature-box">
+              <span class="feature-icon">☑️</span>
+              <strong>Multiple Choice</strong>
+              <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm); color: var(--color-text-light);">
+                Select the correct answer from four options
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <span class="feature-icon">✓✗</span>
+              <strong>True or False</strong>
+              <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm); color: var(--color-text-light);">
+                Quick rapid-fire questions to test your knowledge
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <span class="feature-icon">✍️</span>
+              <strong>Fill in the Blank</strong>
+              <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm); color: var(--color-text-light);">
+                Type the correct answer to complete citations
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Scoring System -->
+      <section class="help-section">
+        <h2 class="section-title">💎 Scoring System</h2>
+        <div class="section-content">
+          <h3>Earning Points</h3>
+          <ul>
+            <li><strong>Base Points:</strong> 10-50 points per correct answer depending on difficulty</li>
+            <li><strong>Streak Bonus:</strong> 1.5x multiplier for 3+ consecutive correct answers</li>
+            <li><strong>Time Bonus:</strong> Up to 20 extra points for answering within 10 seconds</li>
+          </ul>
+
+          <h3>Difficulty Levels</h3>
+          <ul>
+            <li><strong>Beginner:</strong> 10-20 points per question</li>
+            <li><strong>Intermediate:</strong> 25-35 points per question</li>
+            <li><strong>Expert:</strong> 40-50 points per question</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Ranks and Badges -->
+      <section class="help-section">
+        <h2 class="section-title">🏆 Ranks and Badges</h2>
+        <div class="section-content">
+          <h3>Style Ranks</h3>
+          <p>Progress through four ranks based on your total points:</p>
+
+          <table class="rank-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Points Required</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>🎓 Novice Editor</td>
+                <td>0 points</td>
+              </tr>
+              <tr>
+                <td>🛡️ Grammar Guardian</td>
+                <td>500 points</td>
+              </tr>
+              <tr>
+                <td>📜 Citation Sage</td>
+                <td>1,500 points</td>
+              </tr>
+              <tr>
+                <td>👑 Master Stylist</td>
+                <td>3,000 points</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Badge Collection</h3>
+          <p>Earn badges by:</p>
+          <ul>
+            <li>Completing levels at each difficulty tier</li>
+            <li>Achieving perfect runs without errors</li>
+            <li>Building long answer streaks</li>
+            <li>Answering questions quickly</li>
+            <li>Mastering all three style guides</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Tips for Success -->
+      <section class="help-section">
+        <h2 class="section-title">💡 Tips for Success</h2>
+        <div class="section-content">
+          <ul>
+            <li><strong>Read Carefully:</strong> Pay attention to details in questions and answer options</li>
+            <li><strong>Learn from Mistakes:</strong> Review explanations after each answer to understand the rules</li>
+            <li><strong>Build Streaks:</strong> Focus on accuracy to maintain streaks and earn bonus points</li>
+            <li><strong>Practice Regularly:</strong> Return often to reinforce your knowledge</li>
+            <li><strong>Complete All Guides:</strong> Master MLA, APA, and CMS to unlock the Final Boss Level</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Style Guide Resources -->
+      <section class="help-section">
+        <h2 class="section-title">📚 Official Style Guide Resources</h2>
+        <div class="section-content">
+          <p>For comprehensive style guide information, consult these official resources:</p>
+          <ul>
+            <li><strong>MLA:</strong> <a href="https://www.mla.org/MLA-Style" target="_blank" rel="noopener">MLA Handbook, 9th Edition</a></li>
+            <li><strong>APA:</strong> <a href="https://apastyle.apa.org/" target="_blank" rel="noopener">APA Style, 7th Edition</a></li>
+            <li><strong>CMS:</strong> <a href="https://www.chicagomanualofstyle.org/" target="_blank" rel="noopener">Chicago Manual of Style, 17th Edition</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2 style="margin-bottom: var(--spacing-lg);">Ready to Begin?</h2>
+        <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+          <a href="style-selection.html" class="btn btn-primary btn-lg">Start Your Quest</a>
+          <a href="index.html" class="btn btn-outline btn-lg">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
