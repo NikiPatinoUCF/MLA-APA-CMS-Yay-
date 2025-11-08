@@ -202,10 +202,81 @@
     }
 
     .practice-section {
-      background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(44, 122, 123, 0.1));
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.2), rgba(255, 214, 10, 0.2));
       padding: var(--spacing-2xl);
       border-radius: var(--border-radius-lg);
       margin-top: var(--spacing-2xl);
+      border: 6px solid #E63946;
+      position: relative;
+    }
+
+    /* Axe Throwing Progress Tracker */
+    .throwing-stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--spacing-xl);
+      margin: var(--spacing-2xl) 0;
+      padding: var(--spacing-xl);
+      background: linear-gradient(135deg, #8B4513, #654321);
+      border-radius: var(--border-radius-lg);
+      border: 4px solid #FFD60A;
+      position: relative;
+    }
+
+    .target-board {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, #E63946 0%, #E63946 15%, transparent 15%),
+        radial-gradient(circle, white 0%, white 30%, transparent 30%),
+        radial-gradient(circle, #E63946 0%, #E63946 45%, transparent 45%),
+        radial-gradient(circle, white 0%, white 60%, transparent 60%),
+        radial-gradient(circle, #E63946 0%, #E63946 75%, transparent 75%);
+      background-color: white;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 8px solid #654321;
+    }
+
+    .apple-target {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+
+    .axes-thrown {
+      display: flex;
+      gap: var(--spacing-sm);
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      flex-wrap: wrap;
+      max-width: 150px;
+    }
+
+    .axe-icon {
+      font-size: 2rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+      animation: wobble 0.3s ease-in-out;
+    }
+
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-10deg); }
+      75% { transform: rotate(10deg); }
+    }
+
+    .progress-text {
+      font-family: 'Bangers', cursive;
+      font-size: 1.5rem;
+      color: white;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+      text-align: center;
     }
 
     .practice-title {
@@ -503,7 +574,19 @@
 
       <!-- Practice Section -->
       <div class="practice-section">
-        <h2 class="practice-title" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">🎯 TEST YOUR SKILLS - Citation Target Practice!</h2>
+        <h2 class="practice-title" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">🎯 AXE THROWING CHALLENGE - Hit the Apple!</h2>
+
+        <!-- Throwing Stage Visualization -->
+        <div class="throwing-stage">
+          <div class="target-board">
+            <div class="apple-target">🍎</div>
+            <div class="axes-thrown" id="axes-container"></div>
+          </div>
+          <div class="progress-text">
+            <div style="font-size: 2rem; margin-bottom: var(--spacing-sm);">Axes Thrown: <span id="axes-count">0</span>/3</div>
+            <div style="font-size: 1.2rem;">Answer correctly to throw axes at the apple!</div>
+          </div>
+        </div>
 
         <div class="practice-question" id="practice-1">
           <p><strong>Question 1 (MLA):</strong> Which is the correct in-text citation for a direct quote from page 56 by author John Smith?</p>
@@ -595,6 +678,7 @@
 
   <script>
     let currentGuide = 'mla';
+    let axesThrown = 0;
 
     function showGuide(guide) {
       currentGuide = guide;
@@ -610,6 +694,26 @@
         section.classList.remove('active');
       });
       document.getElementById(`${guide}-guide`).classList.add('active');
+    }
+
+    function throwAxe() {
+      if (axesThrown < 3) {
+        axesThrown++;
+        const axesContainer = document.getElementById('axes-container');
+        const axeIcon = document.createElement('div');
+        axeIcon.className = 'axe-icon';
+        axeIcon.textContent = '🪓';
+        axesContainer.appendChild(axeIcon);
+
+        document.getElementById('axes-count').textContent = axesThrown;
+
+        // Check if all 3 axes thrown
+        if (axesThrown === 3) {
+          setTimeout(() => {
+            alert('🎯 BULLSEYE! You hit the apple 3 times! You\'re a master axe thrower!');
+          }, 500);
+        }
+      }
     }
 
     function checkPractice(questionNum, selected, isCorrect) {
@@ -629,9 +733,10 @@
       feedback.classList.add('show', isCorrect ? 'correct' : 'incorrect');
 
       if (isCorrect) {
-        feedback.textContent = '✓ Correct! Great job!';
+        feedback.textContent = '✓ Correct! You threw an axe at the apple! 🪓🍎';
+        throwAxe();
       } else {
-        feedback.textContent = '✗ Not quite. Try again or review the guide above.';
+        feedback.textContent = '✗ Miss! Try again to hit the apple!';
       }
     }
   </script>
