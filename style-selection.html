@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choose Your Style Guide - Edit Quest</title>
+  <title>Choose Your Arena - The Citation Circus</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&family=Bangers&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css">
@@ -16,15 +16,27 @@
 
   <style>
     .page-header {
-      background: linear-gradient(135deg, var(--color-mla), var(--color-apa), var(--color-cms));
+      background: repeating-linear-gradient(90deg, #FFD60A 0px, #FFD60A 30px, #E63946 30px, #E63946 60px);
       padding: var(--spacing-2xl) var(--spacing-lg);
       text-align: center;
       color: var(--color-white);
+      border-bottom: 10px solid #457B9D;
     }
 
     .page-header h1 {
       color: var(--color-white);
       margin-bottom: var(--spacing-md);
+      font-family: 'Bangers', cursive;
+      font-size: 3.5rem;
+      letter-spacing: 3px;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+    }
+
+    .page-header p {
+      font-family: 'Bangers', cursive;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
     }
 
     .page-content {
@@ -173,8 +185,8 @@
 <body class="bg-animated">
   <!-- Page Header -->
   <header class="page-header">
-    <h1>Choose Your Style Guide</h1>
-    <p>Select a style guide to begin your editing quest</p>
+    <h1>🎪 CHOOSE YOUR ARENA 🎪</h1>
+    <p>🎡 Step into the ring and show your skills! 🎡</p>
   </header>
 
   <!-- Main Content -->
@@ -182,18 +194,18 @@
     <div class="container">
       <!-- Navigation Links -->
       <div class="nav-links">
-        <a href="index.html" class="btn btn-ghost">← Back to Home</a>
-        <a href="profile.html" class="btn btn-ghost">View Profile</a>
+        <a href="index.html" class="btn btn-ghost" style="font-family: 'Bangers', cursive; letter-spacing: 1px;">← CIRCUS HOME</a>
+        <a href="profile.html" class="btn btn-ghost" style="font-family: 'Bangers', cursive; letter-spacing: 1px;">VIEW PROFILE</a>
       </div>
 
       <!-- Style Guide Cards -->
       <div class="style-cards">
         <!-- MLA Card -->
         <div class="style-card mla card-interactive" onclick="selectGuide('mla')">
-          <span class="style-card-icon">📘</span>
-          <h2 class="style-card-title">MLA Style</h2>
+          <span class="style-card-icon">🎭</span>
+          <h2 class="style-card-title" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">MLA RING</h2>
           <p class="style-card-description">
-            Modern Language Association format used in humanities, literature, and language studies.
+            The Main Ring! Modern Language Association format for humanities and literature performers.
           </p>
 
           <div class="style-card-stats">
@@ -216,16 +228,16 @@
           </div>
 
           <div style="margin-top: var(--spacing-lg);">
-            <span class="btn btn-mla btn-block">Start MLA Quest</span>
+            <span class="btn btn-mla btn-block" style="font-family: 'Bangers', cursive; letter-spacing: 1px;">ENTER THE RING!</span>
           </div>
         </div>
 
         <!-- APA Card -->
         <div class="style-card apa card-interactive" onclick="selectGuide('apa')">
-          <span class="style-card-icon">📗</span>
-          <h2 class="style-card-title">APA Style</h2>
+          <span class="style-card-icon">🎪</span>
+          <h2 class="style-card-title" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">APA TENT</h2>
           <p class="style-card-description">
-            American Psychological Association format used in social sciences, psychology, and education.
+            The Big Tent! American Psychological Association format for social sciences stars.
           </p>
 
           <div class="style-card-stats">
@@ -248,16 +260,16 @@
           </div>
 
           <div style="margin-top: var(--spacing-lg);">
-            <span class="btn btn-apa btn-block">Start APA Quest</span>
+            <span class="btn btn-apa btn-block" style="font-family: 'Bangers', cursive; letter-spacing: 1px;">ENTER THE TENT!</span>
           </div>
         </div>
 
         <!-- CMS Card -->
         <div class="style-card cms card-interactive" onclick="selectGuide('cms')">
-          <span class="style-card-icon">📙</span>
-          <h2 class="style-card-title">CMS Style</h2>
+          <span class="style-card-icon">🎡</span>
+          <h2 class="style-card-title" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">CMS STAGE</h2>
           <p class="style-card-description">
-            Chicago Manual of Style format used in history, publishing, and the arts.
+            Center Stage! Chicago Manual of Style for history and publishing headliners.
           </p>
 
           <div class="style-card-stats">
@@ -280,13 +292,13 @@
           </div>
 
           <div style="margin-top: var(--spacing-lg);">
-            <span class="btn btn-cms btn-block">Start CMS Quest</span>
+            <span class="btn btn-cms btn-block" style="font-family: 'Bangers', cursive; letter-spacing: 1px;">TAKE THE STAGE!</span>
           </div>
         </div>
       </div>
 
       <div class="back-button">
-        <a href="help.html" class="btn btn-outline">How to Play</a>
+        <a href="help.html" class="btn btn-outline" style="font-family: 'Bangers', cursive; letter-spacing: 1px;">SHOW GUIDE</a>
       </div>
     </div>
   </main>
