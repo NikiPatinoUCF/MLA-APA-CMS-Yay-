@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In-Text Citations Guide - Edit Quest</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .intext-container {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #FAF9F7 0%, #EDF2F7 100%);
+    }
+
+    .intext-header {
+      background: linear-gradient(135deg, var(--color-mla), var(--color-apa), var(--color-cms));
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      text-align: center;
+      color: var(--color-white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .intext-header h1 {
+      color: var(--color-white);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .intext-content {
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .style-tabs {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      margin-bottom: var(--spacing-2xl);
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: var(--spacing-md) var(--spacing-2xl);
+      background-color: var(--color-white);
+      border: 2px solid transparent;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tab-btn.active.mla {
+      background-color: var(--color-mla);
+      color: var(--color-white);
+    }
+
+    .tab-btn.active.apa {
+      background-color: var(--color-apa);
+      color: var(--color-white);
+    }
+
+    .tab-btn.active.cms {
+      background-color: var(--color-cms);
+      color: var(--color-white);
+    }
+
+    .guide-section {
+      background-color: var(--color-white);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-2xl);
+      margin-bottom: var(--spacing-2xl);
+      box-shadow: var(--shadow-lg);
+      display: none;
+    }
+
+    .guide-section.active {
+      display: block;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-title {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--spacing-xl);
+      color: var(--color-black);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+
+    .rule-card {
+      background-color: var(--color-bg);
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--spacing-xl);
+      border-left: 4px solid var(--color-info);
+    }
+
+    .rule-card.mla {
+      border-left-color: var(--color-mla);
+    }
+
+    .rule-card.apa {
+      border-left-color: var(--color-apa);
+    }
+
+    .rule-card.cms {
+      border-left-color: var(--color-cms);
+    }
+
+    .rule-title {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-md);
+      color: var(--color-black);
+    }
+
+    .rule-description {
+      line-height: 1.8;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .example-box {
+      background-color: var(--color-white);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius);
+      margin-top: var(--spacing-md);
+      font-family: 'Courier New', monospace;
+      font-size: var(--font-size-sm);
+      border: 1px solid #e2e8f0;
+    }
+
+    .example-label {
+      font-weight: 700;
+      color: var(--color-success);
+      margin-bottom: var(--spacing-sm);
+      font-family: var(--font-primary);
+      display: block;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .comparison-card {
+      background-color: rgba(74, 144, 226, 0.05);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius);
+    }
+
+    .comparison-card h4 {
+      color: var(--color-info);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .practice-section {
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(44, 122, 123, 0.1));
+      padding: var(--spacing-2xl);
+      border-radius: var(--border-radius-lg);
+      margin-top: var(--spacing-2xl);
+    }
+
+    .practice-title {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-lg);
+      text-align: center;
+    }
+
+    .practice-question {
+      background-color: var(--color-white);
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .practice-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      margin: var(--spacing-md) 0;
+    }
+
+    .practice-option {
+      padding: var(--spacing-md);
+      background-color: var(--color-bg);
+      border: 2px solid transparent;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .practice-option:hover {
+      border-color: var(--color-info);
+      background-color: rgba(66, 153, 225, 0.05);
+    }
+
+    .practice-option.correct {
+      border-color: var(--color-success);
+      background-color: rgba(72, 187, 120, 0.1);
+    }
+
+    .practice-option.incorrect {
+      border-color: var(--color-error);
+      background-color: rgba(245, 101, 101, 0.1);
+    }
+
+    .feedback {
+      margin-top: var(--spacing-md);
+      padding: var(--spacing-md);
+      border-radius: var(--border-radius);
+      display: none;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .feedback.correct {
+      background-color: rgba(72, 187, 120, 0.1);
+      color: var(--color-success);
+    }
+
+    .feedback.incorrect {
+      background-color: rgba(245, 101, 101, 0.1);
+      color: var(--color-error);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: space-between;
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .tip-box {
+      background-color: rgba(214, 158, 46, 0.1);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--color-cms);
+      margin: var(--spacing-lg) 0;
+    }
+
+    .tip-box strong {
+      color: var(--color-cms);
+    }
+  </style>
+</head>
+<body>
+  <div class="intext-container">
+    <!-- Header -->
+    <header class="intext-header">
+      <h1>In-Text Citations Guide</h1>
+      <p>Master the art of citing sources within your writing</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="intext-content">
+      <div class="nav-links">
+        <a href="citation-builder.html" class="btn btn-ghost">← Citation Builder</a>
+        <a href="index.html" class="btn btn-ghost">Home</a>
+        <a href="style-selection.html" class="btn btn-primary">Start Quiz →</a>
+      </div>
+
+      <!-- Style Tabs -->
+      <div class="style-tabs">
+        <button class="tab-btn active mla" onclick="showGuide('mla')">📘 MLA Style</button>
+        <button class="tab-btn apa" onclick="showGuide('apa')">📗 APA Style</button>
+        <button class="tab-btn cms" onclick="showGuide('cms')">📙 CMS Style</button>
+      </div>
+
+      <!-- MLA Guide -->
+      <div class="guide-section active" id="mla-guide">
+        <h2 class="section-title">📘 MLA In-Text Citations</h2>
+
+        <div class="rule-card mla">
+          <h3 class="rule-title">Basic Format: Author-Page</h3>
+          <p class="rule-description">
+            MLA uses a parenthetical citation with the author's last name and page number. No comma between them.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Example:</span>
+            According to Smith, "the results were significant" (23).
+          </div>
+        </div>
+
+        <div class="rule-card mla">
+          <h3 class="rule-title">Author Named in Signal Phrase</h3>
+          <p class="rule-description">
+            If you mention the author's name in your sentence, only include the page number in parentheses.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Example:</span>
+            Smith argues that "the evidence is clear" (45).
+          </div>
+        </div>
+
+        <div class="rule-card mla">
+          <h3 class="rule-title">Two Authors</h3>
+          <p class="rule-description">
+            For two authors, include both last names separated by "and".
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Example:</span>
+            Recent studies confirm this theory (Smith and Jones 34).
+          </div>
+        </div>
+
+        <div class="rule-card mla">
+          <h3 class="rule-title">Three or More Authors</h3>
+          <p class="rule-description">
+            Use the first author's last name followed by "et al." (no italics).
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Example:</span>
+            The research demonstrates clear patterns (Johnson et al. 67).
+          </div>
+        </div>
+
+        <div class="rule-card mla">
+          <h3 class="rule-title">No Page Numbers (Websites)</h3>
+          <p class="rule-description">
+            For sources without page numbers (like websites), use only the author's name.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Example:</span>
+            The organization states that "climate action is urgent" (Smith).
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Pro Tip:</strong> The period comes after the parenthetical citation, not before it!
+        </div>
+      </div>
+
+      <!-- APA Guide -->
+      <div class="guide-section" id="apa-guide">
+        <h2 class="section-title">📗 APA In-Text Citations</h2>
+
+        <div class="rule-card apa">
+          <h3 class="rule-title">Basic Format: Author-Year</h3>
+          <p class="rule-description">
+            APA uses author-date format with a comma. Page numbers are required for direct quotes.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Example:</span>
+            The study found significant results (Smith, 2020, p. 45).
+          </div>
+        </div>
+
+        <div class="rule-card apa">
+          <h3 class="rule-title">Author Named in Sentence</h3>
+          <p class="rule-description">
+            When the author is named in the text, put the year in parentheses immediately after the name.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Example:</span>
+            Smith (2020) argued that "the evidence is clear" (p. 45).
+          </div>
+        </div>
+
+        <div class="rule-card apa">
+          <h3 class="rule-title">Two Authors</h3>
+          <p class="rule-description">
+            Use "and" in narrative citations and "&" in parenthetical citations.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Narrative:</span>
+            Smith and Jones (2020) found significant results.<br><br>
+            <span class="example-label">✓ Parenthetical:</span>
+            The results were significant (Smith & Jones, 2020).
+          </div>
+        </div>
+
+        <div class="rule-card apa">
+          <h3 class="rule-title">Three or More Authors</h3>
+          <p class="rule-description">
+            Use the first author's name followed by "et al." from the first citation onwards.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Example:</span>
+            Research confirms this pattern (Johnson et al., 2021).
+          </div>
+        </div>
+
+        <div class="rule-card apa">
+          <h3 class="rule-title">Page Numbers</h3>
+          <p class="rule-description">
+            Use "p." for one page and "pp." for multiple pages. Page numbers are required for direct quotes.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ One page:</span>
+            "Direct quote here" (Smith, 2020, p. 23).<br><br>
+            <span class="example-label">✓ Multiple pages:</span>
+            "Longer quote" (Jones, 2019, pp. 45-47).
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Pro Tip:</strong> Always include the year, even when you mention it in your text!
+        </div>
+      </div>
+
+      <!-- CMS Guide -->
+      <div class="guide-section" id="cms-guide">
+        <h2 class="section-title">📙 Chicago (CMS) In-Text Citations</h2>
+
+        <div class="rule-card cms">
+          <h3 class="rule-title">Two Systems: Notes or Author-Date</h3>
+          <p class="rule-description">
+            Chicago offers two citation systems. Notes-Bibliography uses footnotes or endnotes. Author-Date uses parenthetical citations similar to APA.
+          </p>
+        </div>
+
+        <div class="rule-card cms">
+          <h3 class="rule-title">Notes-Bibliography System (Footnotes)</h3>
+          <p class="rule-description">
+            Use superscript numbers in text that correspond to footnotes at the bottom of the page.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ In text:</span>
+            According to recent research, climate change is accelerating.¹<br><br>
+            <span class="example-label">✓ Footnote:</span>
+            1. John Smith, The Great Novel (New York: Penguin Press, 2020), 45.
+          </div>
+        </div>
+
+        <div class="rule-card cms">
+          <h3 class="rule-title">Shortened Footnotes (Subsequent References)</h3>
+          <p class="rule-description">
+            After the first full citation, use a shortened form with author's last name and page number.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ First reference:</span>
+            1. John Smith, The Great Novel (New York: Penguin Press, 2020), 45.<br><br>
+            <span class="example-label">✓ Later references:</span>
+            2. Smith, The Great Novel, 67.
+          </div>
+        </div>
+
+        <div class="rule-card cms">
+          <h3 class="rule-title">Author-Date System</h3>
+          <p class="rule-description">
+            Similar to APA, with author's last name, year, and page number in parentheses.
+          </p>
+          <div class="example-box">
+            <span class="example-label">✓ Example:</span>
+            The evidence is clear (Smith 2020, 45).
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Pro Tip:</strong> Choose one system (Notes or Author-Date) and use it consistently throughout your paper!
+        </div>
+      </div>
+
+      <!-- Practice Section -->
+      <div class="practice-section">
+        <h2 class="practice-title">🎯 Practice: Identify the Correct Citation</h2>
+
+        <div class="practice-question" id="practice-1">
+          <p><strong>Question 1 (MLA):</strong> Which is the correct in-text citation for a direct quote from page 56 by author John Smith?</p>
+          <div class="practice-options">
+            <div class="practice-option" onclick="checkPractice(1, 'a', false)">
+              a) "Quote here." (Smith 56)
+            </div>
+            <div class="practice-option" onclick="checkPractice(1, 'b', true)">
+              b) "Quote here" (Smith 56).
+            </div>
+            <div class="practice-option" onclick="checkPractice(1, 'c', false)">
+              c) "Quote here" (Smith, 56).
+            </div>
+            <div class="practice-option" onclick="checkPractice(1, 'd', false)">
+              d) "Quote here." (John Smith 56)
+            </div>
+          </div>
+          <div class="feedback" id="feedback-1"></div>
+        </div>
+
+        <div class="practice-question" id="practice-2">
+          <p><strong>Question 2 (APA):</strong> Which is correct when the author is named in your sentence?</p>
+          <div class="practice-options">
+            <div class="practice-option" onclick="checkPractice(2, 'a', false)">
+              a) Smith argued that "results were clear."
+            </div>
+            <div class="practice-option" onclick="checkPractice(2, 'b', true)">
+              b) Smith (2020) argued that "results were clear" (p. 23).
+            </div>
+            <div class="practice-option" onclick="checkPractice(2, 'c', false)">
+              c) Smith argued that "results were clear" (2020, p. 23).
+            </div>
+            <div class="practice-option" onclick="checkPractice(2, 'd', false)">
+              d) Smith, 2020, argued that "results were clear" (23).
+            </div>
+          </div>
+          <div class="feedback" id="feedback-2"></div>
+        </div>
+
+        <div class="practice-question" id="practice-3">
+          <p><strong>Question 3 (MLA):</strong> How do you cite three or more authors in MLA?</p>
+          <div class="practice-options">
+            <div class="practice-option" onclick="checkPractice(3, 'a', false)">
+              a) (Smith, Jones, and Johnson 45)
+            </div>
+            <div class="practice-option" onclick="checkPractice(3, 'b', true)">
+              b) (Smith et al. 45)
+            </div>
+            <div class="practice-option" onclick="checkPractice(3, 'c', false)">
+              c) (Smith and others 45)
+            </div>
+            <div class="practice-option" onclick="checkPractice(3, 'd', false)">
+              d) (Smith, et al., 45)
+            </div>
+          </div>
+          <div class="feedback" id="feedback-3"></div>
+        </div>
+      </div>
+
+      <!-- Comparison -->
+      <div style="margin-top: var(--spacing-3xl);">
+        <h2 class="section-title">📊 Quick Comparison</h2>
+        <div class="comparison-grid">
+          <div class="comparison-card">
+            <h4>📘 MLA</h4>
+            <p>(Author Page)</p>
+            <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm);">
+              Simple and clean. No punctuation between author and page number.
+            </p>
+          </div>
+          <div class="comparison-card">
+            <h4>📗 APA</h4>
+            <p>(Author, Year, p. Page)</p>
+            <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm);">
+              Emphasizes publication date. Uses commas and "p." for pages.
+            </p>
+          </div>
+          <div class="comparison-card">
+            <h4>📙 CMS</h4>
+            <p>Footnotes or (Author Year, Page)</p>
+            <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm);">
+              Two systems available. Notes-Bibliography is common in humanities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let currentGuide = 'mla';
+
+    function showGuide(guide) {
+      currentGuide = guide;
+
+      // Update tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active', guide);
+
+      // Show corresponding guide
+      document.querySelectorAll('.guide-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(`${guide}-guide`).classList.add('active');
+    }
+
+    function checkPractice(questionNum, selected, isCorrect) {
+      const question = document.getElementById(`practice-${questionNum}`);
+      const options = question.querySelectorAll('.practice-option');
+      const feedback = document.getElementById(`feedback-${questionNum}`);
+
+      // Reset options
+      options.forEach(opt => {
+        opt.classList.remove('correct', 'incorrect');
+      });
+
+      // Mark selected
+      event.target.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+      // Show feedback
+      feedback.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+
+      if (isCorrect) {
+        feedback.textContent = '✓ Correct! Great job!';
+      } else {
+        feedback.textContent = '✗ Not quite. Try again or review the guide above.';
+      }
+    }
+  </script>
+</body>
+</html>
