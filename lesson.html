@@ -227,6 +227,7 @@
       'mla-comma-castle-beginner': {
         icon: '🏚️👻',
         title: 'Haunted Punctuation House: Grammar Basics',
+        carnivalTreats: true,
         sections: [
           {
             heading: 'The Oxford Comma (Serial Comma)',
@@ -275,6 +276,7 @@
       'apa-comma-castle-beginner': {
         icon: '🏚️👻',
         title: 'Haunted Punctuation House: APA Punctuation',
+        carnivalTreats: true,
         sections: [
           {
             heading: 'The Serial Comma in APA',
@@ -317,6 +319,7 @@
       'cms-comma-castle-beginner': {
         icon: '🏚️👻',
         title: 'Haunted Punctuation House: Chicago Punctuation',
+        carnivalTreats: true,
         sections: [
           {
             heading: 'The Oxford Comma',
@@ -365,7 +368,7 @@
 
       if (!lesson) {
         // Default lesson if specific one not found
-        document.getElementById('lesson-card').innerHTML = `
+        let defaultHtml = `
           <span class="lesson-icon">📚</span>
           <h2 class="lesson-title">Get Ready!</h2>
           <p class="lesson-text" style="text-align: center;">
@@ -376,6 +379,51 @@
             <strong>💡 Tip:</strong> Build streaks by answering multiple questions correctly in a row for bonus points!
           </div>
         `;
+
+        // Add carnival treats for Haunted Punctuation House
+        if (region === 'comma-castle') {
+          defaultHtml += `
+            <div style="margin-top: var(--spacing-2xl); padding-top: var(--spacing-xl); border-top: 3px dashed #E63946;">
+              <h3 style="text-align: center; color: #E63946; font-family: 'Bangers', cursive; font-size: 1.8rem; letter-spacing: 2px;">🎪 CARNIVAL TREAT REWARDS 🎪</h3>
+              <p class="lesson-text" style="text-align: center;">
+                Complete this quiz to earn a delicious carnival treat based on your accuracy!
+              </p>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+                <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 195, 0, 0.1)); border-radius: var(--border-radius); border: 2px solid #FFD60A;">
+                  <div style="font-size: 3rem;">🍭</div>
+                  <strong style="color: #E63946;">Cotton Candy</strong>
+                  <div style="font-size: 0.9rem; color: var(--color-text-light);">0-39% accuracy</div>
+                </div>
+                <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 195, 0, 0.1)); border-radius: var(--border-radius); border: 2px solid #FFD60A;">
+                  <div style="font-size: 3rem;">🍿</div>
+                  <strong style="color: #E63946;">Popcorn</strong>
+                  <div style="font-size: 0.9rem; color: var(--color-text-light);">40-59% accuracy</div>
+                </div>
+                <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 195, 0, 0.1)); border-radius: var(--border-radius); border: 2px solid #FFD60A;">
+                  <div style="font-size: 3rem;">🍋</div>
+                  <strong style="color: #E63946;">Lemonade</strong>
+                  <div style="font-size: 0.9rem; color: var(--color-text-light);">60-79% accuracy</div>
+                </div>
+                <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 195, 0, 0.1)); border-radius: var(--border-radius); border: 2px solid #FFD60A;">
+                  <div style="font-size: 3rem;">🍎</div>
+                  <strong style="color: #E63946;">Caramel Apple</strong>
+                  <div style="font-size: 0.9rem; color: var(--color-text-light);">80-89% accuracy</div>
+                </div>
+                <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.2), rgba(255, 195, 0, 0.2)); border-radius: var(--border-radius); border: 3px solid #E63946;">
+                  <div style="font-size: 3rem;">🧇</div>
+                  <strong style="color: #E63946;">Funnel Cake</strong>
+                  <div style="font-size: 0.9rem; color: var(--color-text-light);"><strong>90-100% accuracy</strong></div>
+                  <div style="font-size: 0.8rem; color: #E63946; margin-top: 4px;">🏆 Grand Prize!</div>
+                </div>
+              </div>
+              <div class="lesson-tip" style="margin-top: var(--spacing-lg);">
+                <strong>🎯 Challenge:</strong> Aim for 90% or higher accuracy to earn the grand prize Funnel Cake!
+              </div>
+            </div>
+          `;
+        }
+
+        document.getElementById('lesson-card').innerHTML = defaultHtml;
         return;
       }
 
@@ -404,6 +452,49 @@
           </div>
         `;
       });
+
+      // Add carnival treats reward preview for Haunted Punctuation House
+      if (lesson.carnivalTreats) {
+        html += `
+          <div class="lesson-section ${guide}" style="margin-top: var(--spacing-2xl); padding-top: var(--spacing-xl); border-top: 3px dashed #E63946;">
+            <h3 style="text-align: center; color: #E63946; font-family: 'Bangers', cursive; font-size: 1.8rem; letter-spacing: 2px;">🎪 CARNIVAL TREAT REWARDS 🎪</h3>
+            <p class="lesson-text" style="text-align: center;">
+              Complete this quiz to earn a delicious carnival treat based on your accuracy!
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+              <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 195, 0, 0.1)); border-radius: var(--border-radius); border: 2px solid #FFD60A;">
+                <div style="font-size: 3rem;">🍭</div>
+                <strong style="color: #E63946;">Cotton Candy</strong>
+                <div style="font-size: 0.9rem; color: var(--color-text-light);">0-39% accuracy</div>
+              </div>
+              <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 195, 0, 0.1)); border-radius: var(--border-radius); border: 2px solid #FFD60A;">
+                <div style="font-size: 3rem;">🍿</div>
+                <strong style="color: #E63946;">Popcorn</strong>
+                <div style="font-size: 0.9rem; color: var(--color-text-light);">40-59% accuracy</div>
+              </div>
+              <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 195, 0, 0.1)); border-radius: var(--border-radius); border: 2px solid #FFD60A;">
+                <div style="font-size: 3rem;">🍋</div>
+                <strong style="color: #E63946;">Lemonade</strong>
+                <div style="font-size: 0.9rem; color: var(--color-text-light);">60-79% accuracy</div>
+              </div>
+              <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 195, 0, 0.1)); border-radius: var(--border-radius); border: 2px solid #FFD60A;">
+                <div style="font-size: 3rem;">🍎</div>
+                <strong style="color: #E63946;">Caramel Apple</strong>
+                <div style="font-size: 0.9rem; color: var(--color-text-light);">80-89% accuracy</div>
+              </div>
+              <div style="text-align: center; padding: var(--spacing-md); background: linear-gradient(135deg, rgba(255, 214, 10, 0.2), rgba(255, 195, 0, 0.2)); border-radius: var(--border-radius); border: 3px solid #E63946;">
+                <div style="font-size: 3rem;">🧇</div>
+                <strong style="color: #E63946;">Funnel Cake</strong>
+                <div style="font-size: 0.9rem; color: var(--color-text-light);"><strong>90-100% accuracy</strong></div>
+                <div style="font-size: 0.8rem; color: #E63946; margin-top: 4px;">🏆 Grand Prize!</div>
+              </div>
+            </div>
+            <div class="lesson-tip" style="margin-top: var(--spacing-lg);">
+              <strong>🎯 Challenge:</strong> Aim for 90% or higher accuracy to earn the grand prize Funnel Cake!
+            </div>
+          </div>
+        `;
+      }
 
       document.getElementById('lesson-card').innerHTML = html;
     }
