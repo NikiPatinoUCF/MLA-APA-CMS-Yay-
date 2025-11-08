@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Edit Quest: The Style Guide Game - Learn MLA, APA, and CMS style conventions through interactive, gamified challenges.">
-  <title>Edit Quest: The Style Guide Game</title>
+  <meta name="description" content="The Citation Circus - Learn MLA, APA, and CMS style conventions through interactive, gamified challenges in the greatest show on Earth!">
+  <title>The Citation Circus - The Greatest Show in Citation!</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&family=Bangers&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css">
@@ -24,25 +24,31 @@
       justify-content: center;
       text-align: center;
       position: relative;
-      background: linear-gradient(135deg, #FAF9F7 0%, #EDF2F7 50%, #E2E8F0 100%);
+      background: repeating-linear-gradient(
+        45deg,
+        #FFD60A,
+        #FFD60A 20px,
+        #E63946 20px,
+        #E63946 40px
+      );
       overflow: hidden;
     }
 
     .hero::before {
-      content: '✏️';
+      content: '🎪';
       position: absolute;
       font-size: 200px;
-      opacity: 0.05;
+      opacity: 0.1;
       top: 10%;
       left: 10%;
       animation: floatSlow 20s ease-in-out infinite;
     }
 
     .hero::after {
-      content: '📚';
+      content: '🎡';
       position: absolute;
       font-size: 150px;
-      opacity: 0.05;
+      opacity: 0.1;
       bottom: 15%;
       right: 15%;
       animation: floatSlow 25s ease-in-out infinite reverse;
@@ -53,23 +59,28 @@
       padding: var(--spacing-2xl);
       position: relative;
       z-index: 2;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      border: 6px solid #E63946;
     }
 
     .hero-title {
       font-size: clamp(2.5rem, 8vw, 5rem);
-      font-family: var(--font-heading);
-      margin-bottom: var(--spacing-lg);
-      background: linear-gradient(135deg, var(--color-mla), var(--color-apa), var(--color-cms));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-family: 'Bangers', cursive;
+      margin-bottom: var(--spacing-sm);
+      color: #E63946;
+      text-shadow: 3px 3px 0 #FFD60A, 6px 6px 0 rgba(0, 0, 0, 0.2);
+      letter-spacing: 3px;
       animation: fadeInUp 0.8s ease-out;
     }
 
     .hero-subtitle {
       font-size: clamp(1.25rem, 3vw, 1.75rem);
-      color: var(--color-text-light);
+      font-family: 'Bangers', cursive;
+      color: #457B9D;
       margin-bottom: var(--spacing-2xl);
+      letter-spacing: 2px;
       animation: fadeInUp 1s ease-out;
     }
 
@@ -218,19 +229,19 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1 class="hero-title">Edit Quest</h1>
-      <p class="hero-subtitle">The Style Guide Game</p>
+      <h1 class="hero-title">🎪 THE CITATION CIRCUS 🎪</h1>
+      <p class="hero-subtitle">🎡 The Greatest Show in Citation! 🎡</p>
       <p class="hero-description">
-        Master MLA, APA, and CMS style conventions through fun, interactive challenges.
-        Level up your editing skills, earn badges, and become a Master Stylist!
+        Step right up! Master MLA, APA, and CMS style conventions through spectacular circus-themed challenges.
+        Become the TOP SCHOLAR and impress the crowd with your citation skills!
       </p>
       <div class="hero-cta">
-        <a href="style-selection.html" class="btn btn-primary btn-lg">Start Your Quest</a>
-        <a href="help.html" class="btn btn-outline btn-lg">How to Play</a>
+        <a href="style-selection.html" class="btn btn-primary btn-lg" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">🎪 ENTER THE CIRCUS 🎪</a>
+        <a href="help.html" class="btn btn-outline btn-lg" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">📜 SHOW GUIDE</a>
       </div>
       <div class="hero-cta" style="margin-top: var(--spacing-xl);">
-        <a href="citation-builder.html" class="btn btn-mla btn-lg">🎯 Citation Builder</a>
-        <a href="in-text-citations.html" class="btn btn-apa btn-lg">📖 In-Text Citations</a>
+        <a href="citation-builder.html" class="btn btn-mla btn-lg" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">💪 STRONGMAN CHALLENGE</a>
+        <a href="in-text-citations.html" class="btn btn-apa btn-lg" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">🎯 CITATION GALLERY</a>
       </div>
     </div>
   </section>
@@ -238,72 +249,72 @@
   <!-- Features Section -->
   <section class="features">
     <div class="container">
-      <h2 class="text-center" style="margin-bottom: var(--spacing-3xl);">Quest Features</h2>
+      <h2 class="text-center" style="margin-bottom: var(--spacing-3xl); font-family: 'Bangers', cursive; color: #E63946; letter-spacing: 2px; font-size: 2.5rem;">🎪 CIRCUS ATTRACTIONS 🎪</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <span class="feature-icon">🎮</span>
-          <h3 class="feature-title">Gamified Learning</h3>
+          <span class="feature-icon">🎪</span>
+          <h3 class="feature-title">Spectacular Shows</h3>
           <p class="feature-description">
-            Earn points, build streaks, and unlock badges as you master style conventions.
+            Earn tickets, build winning streaks, and collect badges as you master each performance!
           </p>
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">📖</span>
-          <h3 class="feature-title">Interactive Lessons</h3>
+          <span class="feature-icon">🎭</span>
+          <h3 class="feature-title">Interactive Acts</h3>
           <p class="feature-description">
-            Learn through hands-on challenges with instant feedback and detailed explanations.
+            Learn through thrilling challenges with instant crowd feedback and expert explanations.
           </p>
         </div>
 
         <div class="feature-card">
           <span class="feature-icon">🏆</span>
-          <h3 class="feature-title">Level Progression</h3>
+          <h3 class="feature-title">Rise to Stardom</h3>
           <p class="feature-description">
-            Progress from Novice Editor to Master Stylist across three difficulty tiers.
+            Progress from Circus Rookie to TOP SCHOLAR across three amazing difficulty levels.
           </p>
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">🎯</span>
-          <h3 class="feature-title">Three Style Guides</h3>
+          <span class="feature-icon">🎡</span>
+          <h3 class="feature-title">Three Big Tops</h3>
           <p class="feature-description">
-            Master MLA, APA, and Chicago Manual of Style in themed adventure regions.
+            Master MLA, APA, and CMS in spectacular circus-themed challenge arenas.
           </p>
         </div>
 
         <div class="feature-card">
           <span class="feature-icon">⚡</span>
-          <h3 class="feature-title">Dynamic Challenges</h3>
+          <h3 class="feature-title">Thrilling Challenges</h3>
           <p class="feature-description">
-            Multiple question types including drag-and-drop, multiple choice, and interactive games.
+            Multiple performance types including strongman challenges, acrobatic sorting, and more!
           </p>
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">💾</span>
-          <h3 class="feature-title">Track Progress</h3>
+          <span class="feature-icon">🎟️</span>
+          <h3 class="feature-title">Track Your Fame</h3>
           <p class="feature-description">
-            Your progress is saved locally, so you can continue your quest anytime.
+            Your circus journey is saved locally - return anytime to continue the show!
           </p>
         </div>
 
         <a href="citation-builder.html" style="text-decoration: none; color: inherit;">
           <div class="feature-card">
-            <span class="feature-icon">🎯</span>
-            <h3 class="feature-title">Citation Builder</h3>
+            <span class="feature-icon">💪</span>
+            <h3 class="feature-title">Strongman Challenge</h3>
             <p class="feature-description">
-              Arrange citation components in the correct order with our interactive drag-and-drop tool.
+              Test your strength! Arrange citation components in order and ring the bell!
             </p>
           </div>
         </a>
 
         <a href="in-text-citations.html" style="text-decoration: none; color: inherit;">
           <div class="feature-card">
-            <span class="feature-icon">📖</span>
-            <h3 class="feature-title">In-Text Citations</h3>
+            <span class="feature-icon">🎯</span>
+            <h3 class="feature-title">Citation Gallery</h3>
             <p class="feature-description">
-              Learn how to cite sources within your writing with comprehensive guides and examples.
+              Visit our spectacular gallery of in-text citation examples and master the art!
             </p>
           </div>
         </a>
@@ -312,42 +323,42 @@
   </section>
 
   <!-- New Tools Section -->
-  <section class="section" style="background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(44, 122, 123, 0.1), rgba(214, 158, 46, 0.1)); padding: var(--spacing-3xl) var(--spacing-lg);">
+  <section class="section" style="background: repeating-linear-gradient(90deg, #FFD60A 0px, #FFD60A 30px, #E63946 30px, #E63946 60px); padding: var(--spacing-3xl) var(--spacing-lg);">
     <div class="container">
-      <h2 class="text-center" style="margin-bottom: var(--spacing-md);">✨ New Interactive Tools</h2>
-      <p class="text-center" style="color: var(--color-text-light); margin-bottom: var(--spacing-3xl); font-size: var(--font-size-lg);">
-        Practice your citation skills with our latest features
+      <h2 class="text-center" style="margin-bottom: var(--spacing-md); font-family: 'Bangers', cursive; color: white; text-shadow: 3px 3px 0 rgba(0,0,0,0.3); letter-spacing: 3px; font-size: 3rem;">⭐ FEATURED PERFORMANCES ⭐</h2>
+      <p class="text-center" style="color: white; margin-bottom: var(--spacing-3xl); font-size: var(--font-size-xl); font-weight: 700; text-shadow: 2px 2px 0 rgba(0,0,0,0.2);">
+        🎪 Step right up to our main attractions! 🎪
       </p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-2xl); max-width: 1000px; margin: 0 auto;">
         <!-- Citation Builder Card -->
-        <div style="background: white; padding: var(--spacing-2xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); text-align: center; border-top: 6px solid var(--color-mla);">
-          <div style="font-size: 4rem; margin-bottom: var(--spacing-lg);">🎯</div>
-          <h3 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-md); color: var(--color-mla);">Citation Builder</h3>
+        <div style="background: white; padding: var(--spacing-2xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl); text-align: center; border: 6px solid #E63946;">
+          <div style="font-size: 4rem; margin-bottom: var(--spacing-lg);">💪</div>
+          <h3 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-md); color: #E63946; font-family: 'Bangers', cursive; letter-spacing: 2px;">STRONGMAN CHALLENGE</h3>
           <p style="color: var(--color-text-light); margin-bottom: var(--spacing-xl); line-height: 1.6;">
-            Arrange citation components in the correct order using drag-and-drop. Practice MLA, APA, and CMS formats with instant feedback.
+            Test your might! Arrange citations in perfect order and ring the bell to become TOP SCHOLAR!
           </p>
-          <a href="citation-builder.html" class="btn btn-mla btn-block btn-lg">Start Building Citations</a>
+          <a href="citation-builder.html" class="btn btn-mla btn-block btn-lg" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">💪 LIFT THE WEIGHTS</a>
         </div>
 
         <!-- In-Text Citations Card -->
-        <div style="background: white; padding: var(--spacing-2xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); text-align: center; border-top: 6px solid var(--color-apa);">
-          <div style="font-size: 4rem; margin-bottom: var(--spacing-lg);">📖</div>
-          <h3 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-md); color: var(--color-apa);">In-Text Citations</h3>
+        <div style="background: white; padding: var(--spacing-2xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl); text-align: center; border: 6px solid #457B9D;">
+          <div style="font-size: 4rem; margin-bottom: var(--spacing-lg);">🎯</div>
+          <h3 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-md); color: #457B9D; font-family: 'Bangers', cursive; letter-spacing: 2px;">CITATION GALLERY</h3>
           <p style="color: var(--color-text-light); margin-bottom: var(--spacing-xl); line-height: 1.6;">
-            Master in-text citation rules with comprehensive guides, examples, and practice questions for all three styles.
+            Master the art of in-text citations with our spectacular gallery of examples and tricks!
           </p>
-          <a href="in-text-citations.html" class="btn btn-apa btn-block btn-lg">Learn In-Text Citations</a>
+          <a href="in-text-citations.html" class="btn btn-apa btn-block btn-lg" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">🎯 VISIT GALLERY</a>
         </div>
 
         <!-- Sitemap Card -->
-        <div style="background: white; padding: var(--spacing-2xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); text-align: center; border-top: 6px solid var(--color-cms);">
+        <div style="background: white; padding: var(--spacing-2xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl); text-align: center; border: 6px solid #FFD60A;">
           <div style="font-size: 4rem; margin-bottom: var(--spacing-lg);">🗺️</div>
-          <h3 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-md); color: var(--color-cms);">Site Map</h3>
+          <h3 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-md); color: #D69E2E; font-family: 'Bangers', cursive; letter-spacing: 2px;">CIRCUS MAP</h3>
           <p style="color: var(--color-text-light); margin-bottom: var(--spacing-xl); line-height: 1.6;">
-            View all pages and features at a glance. Quick access to every tool and game mode in Edit Quest.
+            Navigate the entire circus! Quick access to every tent, stage, and attraction.
           </p>
-          <a href="sitemap.html" class="btn btn-cms btn-block btn-lg">View All Pages</a>
+          <a href="sitemap.html" class="btn btn-cms btn-block btn-lg" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">🗺️ VIEW MAP</a>
         </div>
       </div>
     </div>
@@ -356,35 +367,35 @@
   <!-- Style Guide Preview -->
   <section class="style-preview">
     <div class="container">
-      <h2 class="text-center" style="margin-bottom: var(--spacing-2xl);">Choose Your Path</h2>
+      <h2 class="text-center" style="margin-bottom: var(--spacing-2xl); font-family: 'Bangers', cursive; color: #E63946; letter-spacing: 2px; font-size: 2.5rem;">🎪 CHOOSE YOUR ARENA 🎪</h2>
       <div class="style-preview-grid">
         <div class="style-card-preview mla">
-          <div class="style-icon">📘</div>
-          <h3 class="style-name">MLA</h3>
+          <div class="style-icon">🎭</div>
+          <h3 class="style-name" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">MLA RING</h3>
           <p class="feature-description">
-            Modern Language Association style for humanities and literature
+            Modern Language Association - The Main Ring for humanities and literature scholars
           </p>
         </div>
 
         <div class="style-card-preview apa">
-          <div class="style-icon">📗</div>
-          <h3 class="style-name">APA</h3>
+          <div class="style-icon">🎪</div>
+          <h3 class="style-name" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">APA TENT</h3>
           <p class="feature-description">
-            American Psychological Association style for social sciences
+            American Psychological Association - The Big Tent for social sciences performers
           </p>
         </div>
 
         <div class="style-card-preview cms">
-          <div class="style-icon">📙</div>
-          <h3 class="style-name">CMS</h3>
+          <div class="style-icon">🎡</div>
+          <h3 class="style-name" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">CMS STAGE</h3>
           <p class="feature-description">
-            Chicago Manual of Style for history and publishing
+            Chicago Manual of Style - The Center Stage for history and publishing stars
           </p>
         </div>
       </div>
 
       <div class="text-center" style="margin-top: var(--spacing-3xl);">
-        <a href="style-selection.html" class="btn btn-cms btn-lg">Begin Your Adventure</a>
+        <a href="style-selection.html" class="btn btn-cms btn-lg" style="font-family: 'Bangers', cursive; letter-spacing: 2px; font-size: 1.5rem; padding: var(--spacing-xl) var(--spacing-3xl);">🎪 ENTER THE CIRCUS! 🎪</a>
       </div>
     </div>
   </section>
@@ -395,7 +406,7 @@
     // Initialize storage on page load
     document.addEventListener('DOMContentLoaded', function() {
       EditQuestStorage.init();
-      console.log('Edit Quest initialized!');
+      console.log('🎪 The Citation Circus is open for business! 🎪');
     });
   </script>
 </body>

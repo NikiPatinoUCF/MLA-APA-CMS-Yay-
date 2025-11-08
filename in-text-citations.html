@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>In-Text Citations Guide - Edit Quest</title>
+  <title>Citation Gallery - The Citation Circus</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&family=Bangers&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css">
@@ -17,26 +17,46 @@
   <style>
     .intext-container {
       min-height: 100vh;
-      background: linear-gradient(135deg, #FAF9F7 0%, #EDF2F7 100%);
+      background: repeating-linear-gradient(
+        45deg,
+        #FFD60A,
+        #FFD60A 20px,
+        #E63946 20px,
+        #E63946 40px
+      );
     }
 
     .intext-header {
-      background: linear-gradient(135deg, var(--color-mla), var(--color-apa), var(--color-cms));
+      background: linear-gradient(135deg, #E63946, #457B9D);
       padding: var(--spacing-3xl) var(--spacing-lg);
       text-align: center;
       color: var(--color-white);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-bottom: 10px solid #FFD60A;
     }
 
     .intext-header h1 {
       color: var(--color-white);
       margin-bottom: var(--spacing-sm);
+      font-family: 'Bangers', cursive;
+      font-size: 3.5rem;
+      letter-spacing: 3px;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+    }
+
+    .intext-header p {
+      font-family: 'Bangers', cursive;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
     }
 
     .intext-content {
       padding: var(--spacing-3xl) var(--spacing-lg);
       max-width: 1000px;
       margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
     .style-tabs {
@@ -277,28 +297,28 @@
   <div class="intext-container">
     <!-- Header -->
     <header class="intext-header">
-      <h1>In-Text Citations Guide</h1>
-      <p>Master the art of citing sources within your writing</p>
+      <h1>🎯 THE CITATION GALLERY 🎯</h1>
+      <p>🎪 Master the spectacular art of citing sources! 🎪</p>
     </header>
 
     <!-- Main Content -->
     <main class="intext-content">
       <div class="nav-links">
-        <a href="citation-builder.html" class="btn btn-ghost">← Citation Builder</a>
-        <a href="index.html" class="btn btn-ghost">Home</a>
-        <a href="style-selection.html" class="btn btn-primary">Start Quiz →</a>
+        <a href="citation-builder.html" class="btn btn-ghost" style="font-family: 'Bangers', cursive;">← STRONGMAN CHALLENGE</a>
+        <a href="index.html" class="btn btn-ghost" style="font-family: 'Bangers', cursive;">🎪 CIRCUS HOME</a>
+        <a href="style-selection.html" class="btn btn-primary" style="font-family: 'Bangers', cursive;">START THE SHOW →</a>
       </div>
 
       <!-- Style Tabs -->
       <div class="style-tabs">
-        <button class="tab-btn active mla" onclick="showGuide('mla')">📘 MLA Style</button>
-        <button class="tab-btn apa" onclick="showGuide('apa')">📗 APA Style</button>
-        <button class="tab-btn cms" onclick="showGuide('cms')">📙 CMS Style</button>
+        <button class="tab-btn active mla" onclick="showGuide('mla')" style="font-family: 'Bangers', cursive; letter-spacing: 1px;">🎭 MLA RING</button>
+        <button class="tab-btn apa" onclick="showGuide('apa')" style="font-family: 'Bangers', cursive; letter-spacing: 1px;">🎪 APA TENT</button>
+        <button class="tab-btn cms" onclick="showGuide('cms')" style="font-family: 'Bangers', cursive; letter-spacing: 1px;">🎡 CMS STAGE</button>
       </div>
 
       <!-- MLA Guide -->
       <div class="guide-section active" id="mla-guide">
-        <h2 class="section-title">📘 MLA In-Text Citations</h2>
+        <h2 class="section-title" style="font-family: 'Bangers', cursive; color: var(--color-mla); letter-spacing: 2px;">🎭 MLA RING - In-Text Citation Tricks</h2>
 
         <div class="rule-card mla">
           <h3 class="rule-title">Basic Format: Author-Page</h3>
@@ -362,7 +382,7 @@
 
       <!-- APA Guide -->
       <div class="guide-section" id="apa-guide">
-        <h2 class="section-title">📗 APA In-Text Citations</h2>
+        <h2 class="section-title" style="font-family: 'Bangers', cursive; color: var(--color-apa); letter-spacing: 2px;">🎪 APA TENT - In-Text Citation Acts</h2>
 
         <div class="rule-card apa">
           <h3 class="rule-title">Basic Format: Author-Year</h3>
@@ -430,7 +450,7 @@
 
       <!-- CMS Guide -->
       <div class="guide-section" id="cms-guide">
-        <h2 class="section-title">📙 Chicago (CMS) In-Text Citations</h2>
+        <h2 class="section-title" style="font-family: 'Bangers', cursive; color: var(--color-cms); letter-spacing: 2px;">🎡 CMS STAGE - Chicago Citation Performance</h2>
 
         <div class="rule-card cms">
           <h3 class="rule-title">Two Systems: Notes or Author-Date</h3>
@@ -483,7 +503,7 @@
 
       <!-- Practice Section -->
       <div class="practice-section">
-        <h2 class="practice-title">🎯 Practice: Identify the Correct Citation</h2>
+        <h2 class="practice-title" style="font-family: 'Bangers', cursive; letter-spacing: 2px;">🎯 TEST YOUR SKILLS - Citation Target Practice!</h2>
 
         <div class="practice-question" id="practice-1">
           <p><strong>Question 1 (MLA):</strong> Which is the correct in-text citation for a direct quote from page 56 by author John Smith?</p>
@@ -545,24 +565,24 @@
 
       <!-- Comparison -->
       <div style="margin-top: var(--spacing-3xl);">
-        <h2 class="section-title">📊 Quick Comparison</h2>
+        <h2 class="section-title" style="font-family: 'Bangers', cursive; color: #E63946; letter-spacing: 2px;">🎪 SIDE-BY-SIDE SHOWDOWN 🎪</h2>
         <div class="comparison-grid">
           <div class="comparison-card">
-            <h4>📘 MLA</h4>
+            <h4 style="font-family: 'Bangers', cursive; letter-spacing: 1px;">🎭 MLA RING</h4>
             <p>(Author Page)</p>
             <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm);">
               Simple and clean. No punctuation between author and page number.
             </p>
           </div>
           <div class="comparison-card">
-            <h4>📗 APA</h4>
+            <h4 style="font-family: 'Bangers', cursive; letter-spacing: 1px;">🎪 APA TENT</h4>
             <p>(Author, Year, p. Page)</p>
             <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm);">
               Emphasizes publication date. Uses commas and "p." for pages.
             </p>
           </div>
           <div class="comparison-card">
-            <h4>📙 CMS</h4>
+            <h4 style="font-family: 'Bangers', cursive; letter-spacing: 1px;">🎡 CMS STAGE</h4>
             <p>Footnotes or (Author Year, Page)</p>
             <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm);">
               Two systems available. Notes-Bibliography is common in humanities.
