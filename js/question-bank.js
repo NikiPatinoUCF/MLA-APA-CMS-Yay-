@@ -273,6 +273,106 @@ const QuestionBank = (function() {
           explanation: 'Use a colon to introduce a list after a complete independent clause, then separate items with commas (including the Oxford comma).',
           points: 10,
           timeLimit: 30
+        },
+
+        // INTERMEDIATE
+        {
+          id: 'apa-cc-i1',
+          type: 'multiple-choice',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'Which sentence correctly uses semicolons in APA style?',
+          options: [
+            'The participants were from Boston, Massachusetts, Chicago, Illinois, and Dallas, Texas.',
+            'The participants were from Boston, Massachusetts; Chicago, Illinois; and Dallas, Texas.',
+            'The participants were from Boston; Massachusetts, Chicago; Illinois, and Dallas; Texas.',
+            'The participants were from Boston, Massachusetts, Chicago; Illinois and Dallas, Texas.'
+          ],
+          correctAnswer: 'The participants were from Boston, Massachusetts; Chicago, Illinois; and Dallas, Texas.',
+          explanation: 'Use semicolons to separate items in a series when the items themselves contain commas. This prevents confusion and improves readability.',
+          points: 25,
+          timeLimit: 40
+        },
+        {
+          id: 'apa-cc-i2',
+          type: 'true-false',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'In APA style, a comma should be used before "and" when joining two independent clauses.',
+          correctAnswer: true,
+          explanation: 'True. When using a coordinating conjunction (and, but, or, nor, for, so, yet) to join two independent clauses, place a comma before the conjunction.',
+          points: 25,
+          timeLimit: 30
+        },
+        {
+          id: 'apa-cc-i3',
+          type: 'multiple-choice',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'How should commas be used with nonrestrictive clauses in APA style?',
+          options: [
+            'Use commas on both sides of the clause.',
+            'Use a comma only before the clause.',
+            'Use a comma only after the clause.',
+            'Do not use commas with nonrestrictive clauses.'
+          ],
+          correctAnswer: 'Use commas on both sides of the clause.',
+          explanation: 'Nonrestrictive clauses (providing additional, nonessential information) should be set off with commas on both sides. Example: "The study, which was funded by NIH, examined..."',
+          points: 25,
+          timeLimit: 35
+        },
+
+        // EXPERT
+        {
+          id: 'apa-cc-e1',
+          type: 'multiple-choice',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'Which sentence correctly uses commas with multiple coordinate adjectives in APA style?',
+          options: [
+            'The long, complex, detailed questionnaire was distributed to participants.',
+            'The long complex detailed questionnaire was distributed to participants.',
+            'The long, complex detailed questionnaire was distributed to participants.',
+            'The long complex, detailed questionnaire was distributed to participants.'
+          ],
+          correctAnswer: 'The long, complex, detailed questionnaire was distributed to participants.',
+          explanation: 'Use commas to separate coordinate adjectives (adjectives that equally modify the noun). Test: If you can put "and" between them or reverse their order, they are coordinate.',
+          points: 40,
+          timeLimit: 50
+        },
+        {
+          id: 'apa-cc-e2',
+          type: 'true-false',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'In APA style, you should use a comma after "e.g.," and "i.e.," when they appear within parentheses.',
+          correctAnswer: true,
+          explanation: 'True. In APA style, always use a comma after "e.g.," and "i.e.," Example: "(e.g., depression, anxiety)" or "(i.e., the control group)".',
+          points: 40,
+          timeLimit: 35
+        },
+        {
+          id: 'apa-cc-e3',
+          type: 'multiple-choice',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'How should you punctuate a sentence with an introductory participial phrase in APA style?',
+          options: [
+            'Having completed the survey participants were debriefed.',
+            'Having completed the survey, participants were debriefed.',
+            'Having completed the survey; participants were debriefed.',
+            'Having completed, the survey participants were debriefed.'
+          ],
+          correctAnswer: 'Having completed the survey, participants were debriefed.',
+          explanation: 'Use a comma after an introductory participial phrase (a phrase beginning with a verb form acting as an adjective). The comma separates the phrase from the main clause.',
+          points: 40,
+          timeLimit: 45
         }
       ],
 
@@ -422,6 +522,106 @@ const QuestionBank = (function() {
           explanation: 'When a date appears in month-day-year format, use a comma after the day and after the year: March 15, 2023, in Boston.',
           points: 10,
           timeLimit: 30
+        },
+
+        // INTERMEDIATE
+        {
+          id: 'cms-cc-i1',
+          type: 'multiple-choice',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'In Chicago style, how should you punctuate a sentence with a restrictive appositive?',
+          options: [
+            'My brother, the doctor, lives in Chicago.',
+            'My brother the doctor lives in Chicago.',
+            'My brother the doctor, lives in Chicago.',
+            'My brother; the doctor; lives in Chicago.'
+          ],
+          correctAnswer: 'My brother the doctor lives in Chicago.',
+          explanation: 'Restrictive appositives (essential to meaning) are not set off with commas. If you have multiple brothers, "the doctor" is restrictive (identifies which brother). If you have one brother, use commas.',
+          points: 25,
+          timeLimit: 40
+        },
+        {
+          id: 'cms-cc-i2',
+          type: 'true-false',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'In Chicago style, use commas to set off transitional adverbs (however, therefore, nevertheless) when they appear mid-sentence.',
+          correctAnswer: true,
+          explanation: 'True. Transitional adverbs should be set off with commas: "The results, however, were inconclusive." When starting a sentence: "However, the results were inconclusive."',
+          points: 25,
+          timeLimit: 35
+        },
+        {
+          id: 'cms-cc-i3',
+          type: 'multiple-choice',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'Which sentence correctly uses quotation marks and commas in Chicago style?',
+          options: [
+            'The article, "Modern History," was published in 2022.',
+            'The article "Modern History," was published in 2022.',
+            'The article, "Modern History", was published in 2022.',
+            'The article "Modern History" was published in 2022.'
+          ],
+          correctAnswer: 'The article "Modern History" was published in 2022.',
+          explanation: 'In Chicago style, do not use a comma before the title when it immediately follows "the article" or similar. Commas go inside quotation marks in American style.',
+          points: 25,
+          timeLimit: 40
+        },
+
+        // EXPERT
+        {
+          id: 'cms-cc-e1',
+          type: 'multiple-choice',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'In Chicago style, how should you punctuate numbers over 999?',
+          options: [
+            'Use commas: 1,000; 10,000; 100,000',
+            'Use spaces: 1 000; 10 000; 100 000',
+            'Use periods: 1.000; 10.000; 100.000',
+            'No separators: 1000; 10000; 100000'
+          ],
+          correctAnswer: 'Use commas: 1,000; 10,000; 100,000',
+          explanation: 'Chicago style uses commas to separate groups of three digits in numbers over 999: 1,000; 10,000; 100,000. However, page numbers, addresses, and years do not use commas.',
+          points: 40,
+          timeLimit: 45
+        },
+        {
+          id: 'cms-cc-e2',
+          type: 'true-false',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'In Chicago style, an em dash (—) should have spaces on both sides.',
+          correctAnswer: false,
+          explanation: 'False. Chicago style uses em dashes without spaces: "The results—which were surprising—changed everything." Do not confuse with en dashes, which are used for ranges.',
+          points: 40,
+          timeLimit: 30
+        },
+        {
+          id: 'cms-cc-e3',
+          type: 'multiple-choice',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'How should you punctuate a compound sentence with a conjunctive adverb in Chicago style?',
+          options: [
+            'The study was complete; however the results were incomplete.',
+            'The study was complete; however, the results were incomplete.',
+            'The study was complete, however, the results were incomplete.',
+            'The study was complete however, the results were incomplete.'
+          ],
+          correctAnswer: 'The study was complete; however, the results were incomplete.',
+          explanation: 'Use a semicolon before the conjunctive adverb and a comma after it when joining two independent clauses: "clause; however, clause."',
+          points: 40,
+          timeLimit: 50
         }
       ],
 
