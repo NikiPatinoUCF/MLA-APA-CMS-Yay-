@@ -341,6 +341,19 @@
       }
     }
 
+    // Carnival treat rewards for Haunted Punctuation House
+    function getCarnivalTreat(accuracy) {
+      const treats = [
+        { min: 0, max: 39, name: 'Cotton Candy', icon: '🍭', message: 'Sweet try! Have some Cotton Candy!' },
+        { min: 40, max: 59, name: 'Popcorn', icon: '🍿', message: 'Good job! Enjoy some fresh Popcorn!' },
+        { min: 60, max: 79, name: 'Lemonade', icon: '🍋', message: 'Well done! Cool off with fresh Lemonade!' },
+        { min: 80, max: 89, name: 'Caramel Apple', icon: '🍎', message: 'Excellent! Here\'s a delicious Caramel Apple!' },
+        { min: 90, max: 100, name: 'Funnel Cake', icon: '🧇', message: 'Amazing! You earned the grand prize: Funnel Cake!' }
+      ];
+
+      return treats.find(treat => accuracy >= treat.min && accuracy <= treat.max);
+    }
+
     function handleLevelComplete(completionData) {
       const modal = document.getElementById('complete-modal');
       const content = document.getElementById('complete-content');
@@ -348,6 +361,10 @@
 
       // Update back button URL
       backBtn.href = `level-selection.html?guide=${guide}`;
+
+      // Get carnival treat for Haunted Punctuation House
+      const isHauntedHouse = region === 'comma-castle';
+      const treat = isHauntedHouse ? getCarnivalTreat(completionData.accuracy) : null;
 
       // Render completion data
       content.innerHTML = `
@@ -371,6 +388,13 @@
               <div class="level-complete-stat-label">Best Streak</div>
             </div>
           </div>
+          ${treat ? `
+            <div class="alert alert-success" style="background: linear-gradient(135deg, #FFD60A, #FFC300); color: #1A1A1A; border: 4px solid #E63946; font-family: 'Bangers', cursive; font-size: 1.3rem; letter-spacing: 1px; margin-top: var(--spacing-xl);">
+              <div style="font-size: 4rem; margin-bottom: var(--spacing-sm);">${treat.icon}</div>
+              <strong>🎪 CARNIVAL TREAT EARNED! 🎪</strong><br>
+              ${treat.message}
+            </div>
+          ` : ''}
           ${completionData.newBadges && completionData.newBadges.length > 0 ? `
             <div class="alert alert-success">
               <strong>New Badges Earned! 🎉</strong><br>
