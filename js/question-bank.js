@@ -78,6 +78,36 @@ const QuestionBank = (function() {
           points: 10,
           timeLimit: 30
         },
+        {
+          id: 'mla-cc-b4',
+          type: 'true-false',
+          styleGuide: 'mla',
+          region: 'comma-castle',
+          difficulty: 'beginner',
+          question: 'Commas should be used to separate items in a series, even if the items are only two words long.',
+          correctAnswer: true,
+          explanation: 'True. Use commas to separate three or more items in a series, regardless of word count. Example: "red, blue, and green" or "quickly, quietly, and carefully".',
+          points: 10,
+          timeLimit: 25
+        },
+        {
+          id: 'mla-cc-b5',
+          type: 'multiple-choice',
+          styleGuide: 'mla',
+          region: 'comma-castle',
+          difficulty: 'beginner',
+          question: 'Which sentence correctly uses a comma with a dependent clause?',
+          options: [
+            'When you finish the chapter answer the questions.',
+            'When you finish the chapter, answer the questions.',
+            'When, you finish the chapter answer the questions.',
+            'When you finish, the chapter answer the questions.'
+          ],
+          correctAnswer: 'When you finish the chapter, answer the questions.',
+          explanation: 'Use a comma after an introductory dependent clause. The dependent clause ends at "chapter," so the comma goes there.',
+          points: 10,
+          timeLimit: 30
+        },
 
         // INTERMEDIATE
         {
@@ -110,6 +140,54 @@ const QuestionBank = (function() {
           points: 25,
           timeLimit: 25
         },
+        {
+          id: 'mla-cc-i3',
+          type: 'multiple-choice',
+          styleGuide: 'mla',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'Which sentence correctly uses commas with an appositive phrase?',
+          options: [
+            'My professor Dr. Martinez teaches literature.',
+            'My professor, Dr. Martinez teaches literature.',
+            'My professor Dr. Martinez, teaches literature.',
+            'My professor, Dr. Martinez, teaches literature.'
+          ],
+          correctAnswer: 'My professor, Dr. Martinez, teaches literature.',
+          explanation: 'An appositive (a noun phrase that renames another noun) should be set off with commas on both sides when it provides additional, nonessential information.',
+          points: 25,
+          timeLimit: 35
+        },
+        {
+          id: 'mla-cc-i4',
+          type: 'true-false',
+          styleGuide: 'mla',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'In MLA style, use a comma to separate two adjectives when they could be connected by "and".',
+          correctAnswer: true,
+          explanation: 'True. Use commas between coordinate adjectives: "a long, difficult exam" (you could say "a long and difficult exam"). Don\'t use commas with cumulative adjectives like "a beautiful red car".',
+          points: 25,
+          timeLimit: 30
+        },
+        {
+          id: 'mla-cc-i5',
+          type: 'multiple-choice',
+          styleGuide: 'mla',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'How should you punctuate a sentence with a quotation and attribution?',
+          options: [
+            'Smith argues that "education is essential" for social progress.',
+            'Smith argues that, "education is essential" for social progress.',
+            'Smith argues, that "education is essential" for social progress.',
+            'Smith, argues that "education is essential" for social progress.'
+          ],
+          correctAnswer: 'Smith argues that "education is essential" for social progress.',
+          explanation: 'Do not use a comma before "that" when introducing a quotation. Use a comma before a direct quotation only when you don\'t use "that": Smith argues, "Education is essential."',
+          points: 25,
+          timeLimit: 40
+        },
 
         // EXPERT
         {
@@ -129,6 +207,66 @@ const QuestionBank = (function() {
           explanation: 'Place a comma after the entire introductory dependent clause. Do not separate the subject from the verb with a comma unless there is an intervening element.',
           points: 40,
           timeLimit: 50
+        },
+        {
+          id: 'mla-cc-e2',
+          type: 'true-false',
+          styleGuide: 'mla',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'In MLA style, use a comma after "etc." when it appears in the middle of a sentence.',
+          correctAnswer: true,
+          explanation: 'True. When "etc." appears mid-sentence, it should be followed by a comma: "books, articles, etc., were examined." However, MLA generally recommends avoiding "etc." in formal writing.',
+          points: 40,
+          timeLimit: 35
+        },
+        {
+          id: 'mla-cc-e3',
+          type: 'multiple-choice',
+          styleGuide: 'mla',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'Which sentence correctly punctuates a complex series with internal commas?',
+          options: [
+            'The study included participants from Boston, Massachusetts, Portland, Oregon, and Austin, Texas.',
+            'The study included participants from Boston, Massachusetts; Portland, Oregon; and Austin, Texas.',
+            'The study included participants from Boston; Massachusetts, Portland; Oregon, and Austin; Texas.',
+            'The study included participants from: Boston, Massachusetts, Portland, Oregon, and Austin, Texas.'
+          ],
+          correctAnswer: 'The study included participants from Boston, Massachusetts; Portland, Oregon; and Austin, Texas.',
+          explanation: 'Use semicolons to separate items in a series when the items themselves contain commas. This prevents confusion and improves clarity in complex lists.',
+          points: 40,
+          timeLimit: 50
+        },
+        {
+          id: 'mla-cc-e4',
+          type: 'multiple-choice',
+          styleGuide: 'mla',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'How should you punctuate a sentence with a participial phrase in the middle?',
+          options: [
+            'The students, exhausted from studying returned home.',
+            'The students exhausted from studying, returned home.',
+            'The students, exhausted from studying, returned home.',
+            'The students exhausted, from studying returned home.'
+          ],
+          correctAnswer: 'The students, exhausted from studying, returned home.',
+          explanation: 'A participial phrase that interrupts the main clause should be set off with commas on both sides: "The students, exhausted from studying, returned home."',
+          points: 40,
+          timeLimit: 45
+        },
+        {
+          id: 'mla-cc-e5',
+          type: 'true-false',
+          styleGuide: 'mla',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'In MLA style, a comma should appear before a coordinating conjunction only when it joins two independent clauses, not when it joins two words or phrases.',
+          correctAnswer: true,
+          explanation: 'True. Use a comma before "and," "but," "or," etc., only when joining independent clauses: "I wrote, and she edited." Don\'t use a comma when joining words/phrases: "I wrote and edited."',
+          points: 40,
+          timeLimit: 40
         }
       ],
 
@@ -274,6 +412,54 @@ const QuestionBank = (function() {
           points: 10,
           timeLimit: 30
         },
+        {
+          id: 'apa-cc-b3',
+          type: 'true-false',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'beginner',
+          question: 'In APA style, use a comma before "and" when joining two independent clauses.',
+          correctAnswer: true,
+          explanation: 'True. Use a comma before a coordinating conjunction (and, but, or, nor, for, so, yet) when it joins two independent clauses: "The data were collected, and the analysis began."',
+          points: 10,
+          timeLimit: 25
+        },
+        {
+          id: 'apa-cc-b4',
+          type: 'multiple-choice',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'beginner',
+          question: 'Which sentence uses commas correctly in APA style?',
+          options: [
+            'The researcher conducted interviews collected data and analyzed results.',
+            'The researcher conducted interviews, collected data, and analyzed results.',
+            'The researcher, conducted interviews collected data and analyzed results.',
+            'The researcher conducted interviews collected data, and analyzed results.'
+          ],
+          correctAnswer: 'The researcher conducted interviews, collected data, and analyzed results.',
+          explanation: 'Use commas to separate items in a series of three or more, including before the final "and" (Oxford comma).',
+          points: 10,
+          timeLimit: 30
+        },
+        {
+          id: 'apa-cc-b5',
+          type: 'multiple-choice',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'beginner',
+          question: 'In APA style, how should you punctuate an introductory phrase?',
+          options: [
+            'After analyzing the results the researchers drew conclusions.',
+            'After analyzing the results, the researchers drew conclusions.',
+            'After, analyzing the results the researchers drew conclusions.',
+            'After analyzing, the results the researchers drew conclusions.'
+          ],
+          correctAnswer: 'After analyzing the results, the researchers drew conclusions.',
+          explanation: 'Use a comma after an introductory phrase or clause: "After analyzing the results, the researchers drew conclusions."',
+          points: 10,
+          timeLimit: 30
+        },
 
         // INTERMEDIATE
         {
@@ -321,6 +507,36 @@ const QuestionBank = (function() {
           ],
           correctAnswer: 'Use commas on both sides of the clause.',
           explanation: 'Nonrestrictive clauses (providing additional, nonessential information) should be set off with commas on both sides. Example: "The study, which was funded by NIH, examined..."',
+          points: 25,
+          timeLimit: 35
+        },
+        {
+          id: 'apa-cc-i4',
+          type: 'true-false',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'In APA style, numbers 1,000 and above should include commas for clarity.',
+          correctAnswer: true,
+          explanation: 'True. In APA style, use commas in numbers of 1,000 or more: "1,234" or "10,000." Exception: page numbers, binary digits, temperatures, and other specified cases.',
+          points: 25,
+          timeLimit: 30
+        },
+        {
+          id: 'apa-cc-i5',
+          type: 'multiple-choice',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'Which sentence correctly uses commas with a direct address?',
+          options: [
+            'Dr. Smith the data support your hypothesis.',
+            'Dr. Smith, the data support your hypothesis.',
+            'Dr. Smith the data, support your hypothesis.',
+            'Dr. Smith the data support, your hypothesis.'
+          ],
+          correctAnswer: 'Dr. Smith, the data support your hypothesis.',
+          explanation: 'Use a comma to set off a direct address (the person being spoken to): "Dr. Smith, the data support your hypothesis." or "The data, Dr. Smith, support your hypothesis."',
           points: 25,
           timeLimit: 35
         },
@@ -373,6 +589,36 @@ const QuestionBank = (function() {
           explanation: 'Use a comma after an introductory participial phrase (a phrase beginning with a verb form acting as an adjective). The comma separates the phrase from the main clause.',
           points: 40,
           timeLimit: 45
+        },
+        {
+          id: 'apa-cc-e4',
+          type: 'multiple-choice',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'Which sentence correctly uses commas with a series of phrases in APA style?',
+          options: [
+            'The study examined behaviors in children in adolescents and in adults.',
+            'The study examined behaviors in children, in adolescents, and in adults.',
+            'The study examined behaviors in children in adolescents, and in adults.',
+            'The study examined behaviors, in children, in adolescents, and in adults.'
+          ],
+          correctAnswer: 'The study examined behaviors in children, in adolescents, and in adults.',
+          explanation: 'When a series consists of phrases (not just single words), use commas to separate them clearly. Include the Oxford comma before "and" in APA style.',
+          points: 40,
+          timeLimit: 45
+        },
+        {
+          id: 'apa-cc-e5',
+          type: 'true-false',
+          styleGuide: 'apa',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'In APA style, when using "such as" to introduce examples, you should use a comma before it only if the examples are nonessential to the meaning.',
+          correctAnswer: true,
+          explanation: 'True. Use a comma before "such as" when the examples are nonessential: "Many mammals, such as dogs and cats, are domesticated." Omit the comma when essential: "Mammals such as whales live in the ocean."',
+          points: 40,
+          timeLimit: 40
         }
       ],
 
@@ -523,6 +769,54 @@ const QuestionBank = (function() {
           points: 10,
           timeLimit: 30
         },
+        {
+          id: 'cms-cc-b3',
+          type: 'multiple-choice',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'beginner',
+          question: 'In Chicago style, which sentence uses commas correctly in a series?',
+          options: [
+            'The menu included soup salad and dessert.',
+            'The menu included soup, salad and dessert.',
+            'The menu included soup, salad, and dessert.',
+            'The menu included soup salad, and dessert.'
+          ],
+          correctAnswer: 'The menu included soup, salad, and dessert.',
+          explanation: 'Chicago style recommends using the Oxford (serial) comma in a series: item, item, and item.',
+          points: 10,
+          timeLimit: 25
+        },
+        {
+          id: 'cms-cc-b4',
+          type: 'true-false',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'beginner',
+          question: 'In Chicago style, use a comma before a coordinating conjunction when joining two independent clauses.',
+          correctAnswer: true,
+          explanation: 'True. Use a comma before coordinating conjunctions (and, but, or, nor, for, so, yet) when joining two independent clauses: "The book was long, but it was engaging."',
+          points: 10,
+          timeLimit: 25
+        },
+        {
+          id: 'cms-cc-b5',
+          type: 'multiple-choice',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'beginner',
+          question: 'Which sentence correctly uses a comma with an introductory element in Chicago style?',
+          options: [
+            'After the meeting we discussed the proposal.',
+            'After the meeting, we discussed the proposal.',
+            'After, the meeting we discussed the proposal.',
+            'After the meeting we discussed, the proposal.'
+          ],
+          correctAnswer: 'After the meeting, we discussed the proposal.',
+          explanation: 'Use a comma after an introductory word, phrase, or clause: "After the meeting, we discussed the proposal."',
+          points: 10,
+          timeLimit: 30
+        },
 
         // INTERMEDIATE
         {
@@ -573,6 +867,36 @@ const QuestionBank = (function() {
           points: 25,
           timeLimit: 40
         },
+        {
+          id: 'cms-cc-i4',
+          type: 'multiple-choice',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'Which sentence correctly uses commas with an appositive in Chicago style?',
+          options: [
+            'The author Jane Austen wrote Pride and Prejudice.',
+            'The author, Jane Austen wrote Pride and Prejudice.',
+            'The author Jane Austen, wrote Pride and Prejudice.',
+            'The author, Jane Austen, wrote Pride and Prejudice.'
+          ],
+          correctAnswer: 'The author, Jane Austen, wrote Pride and Prejudice.',
+          explanation: 'Nonrestrictive appositives (providing additional, nonessential information) should be set off with commas on both sides: "The author, Jane Austen, wrote Pride and Prejudice."',
+          points: 25,
+          timeLimit: 35
+        },
+        {
+          id: 'cms-cc-i5',
+          type: 'true-false',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'intermediate',
+          question: 'In Chicago style, use a comma after state names when they appear in text with city names.',
+          correctAnswer: true,
+          explanation: 'True. When a city and state appear together in text, use commas around the state: "She lives in Austin, Texas, where she works." Also applies to countries with cities.',
+          points: 25,
+          timeLimit: 30
+        },
 
         // EXPERT
         {
@@ -622,6 +946,36 @@ const QuestionBank = (function() {
           explanation: 'Use a semicolon before the conjunctive adverb and a comma after it when joining two independent clauses: "clause; however, clause."',
           points: 40,
           timeLimit: 50
+        },
+        {
+          id: 'cms-cc-e4',
+          type: 'multiple-choice',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'Which sentence correctly uses commas with a complex series containing internal punctuation?',
+          options: [
+            'The chapters covered Rome, Italy, Paris, France, and London, England.',
+            'The chapters covered Rome, Italy; Paris, France; and London, England.',
+            'The chapters covered Rome; Italy, Paris; France, and London; England.',
+            'The chapters covered: Rome, Italy; Paris, France; and London, England.'
+          ],
+          correctAnswer: 'The chapters covered Rome, Italy; Paris, France; and London, England.',
+          explanation: 'Use semicolons to separate items in a series when the items themselves contain commas. This prevents confusion: "Rome, Italy; Paris, France; and London, England."',
+          points: 40,
+          timeLimit: 50
+        },
+        {
+          id: 'cms-cc-e5',
+          type: 'true-false',
+          styleGuide: 'cms',
+          region: 'comma-castle',
+          difficulty: 'expert',
+          question: 'In Chicago style, omit the comma before "Inc." or "Ltd." in company names unless the company itself uses one.',
+          correctAnswer: true,
+          explanation: 'True. Chicago style recommends following the company\'s own usage. Many companies omit the comma: "Apple Inc." However, if the company uses a comma, include it: "Company Name, Inc."',
+          points: 40,
+          timeLimit: 35
         }
       ],
 
