@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Quest - Site Map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    body {
+      padding: var(--spacing-3xl) var(--spacing-lg);
+      background: linear-gradient(135deg, #FAF9F7 0%, #EDF2F7 100%);
+      min-height: 100vh;
+    }
+    .sitemap-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: var(--spacing-3xl);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-xl);
+    }
+    h1 {
+      text-align: center;
+      color: var(--color-black);
+      margin-bottom: var(--spacing-2xl);
+    }
+    .page-section {
+      margin-bottom: var(--spacing-2xl);
+    }
+    .page-section h2 {
+      color: var(--color-info);
+      margin-bottom: var(--spacing-lg);
+      border-bottom: 2px solid var(--color-bg);
+      padding-bottom: var(--spacing-sm);
+    }
+    .page-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    .page-link {
+      display: block;
+      padding: var(--spacing-lg);
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(44, 122, 123, 0.05));
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--color-info);
+      text-decoration: none;
+      color: var(--color-text);
+      transition: all var(--transition-fast);
+    }
+    .page-link:hover {
+      border-left-color: var(--color-mla);
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(44, 122, 123, 0.1));
+      transform: translateX(8px);
+    }
+    .page-link-title {
+      font-weight: 700;
+      font-size: var(--font-size-lg);
+      color: var(--color-black);
+      margin-bottom: var(--spacing-xs);
+    }
+    .page-link-desc {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-light);
+    }
+    .highlight {
+      background: linear-gradient(135deg, rgba(214, 158, 46, 0.1), rgba(214, 158, 46, 0.2));
+      border-left-color: var(--color-cms);
+    }
+    .highlight:hover {
+      border-left-color: var(--color-cms-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="sitemap-container">
+    <h1>📍 Edit Quest - All Pages</h1>
+    <p style="text-align: center; margin-bottom: var(--spacing-3xl); color: var(--color-text-light);">
+      Direct access to all pages in the Edit Quest application
+    </p>
+
+    <!-- Main Pages -->
+    <div class="page-section">
+      <h2>🏠 Main Pages</h2>
+      <div class="page-links">
+        <a href="index.html" class="page-link">
+          <div class="page-link-title">Home / Landing Page</div>
+          <div class="page-link-desc">Main entry point with features overview</div>
+        </a>
+        <a href="style-selection.html" class="page-link">
+          <div class="page-link-title">Style Guide Selection</div>
+          <div class="page-link-desc">Choose between MLA, APA, or CMS</div>
+        </a>
+        <a href="level-selection.html?guide=mla" class="page-link">
+          <div class="page-link-title">Level Selection (MLA Example)</div>
+          <div class="page-link-desc">Choose difficulty and region</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- NEW PAGES -->
+    <div class="page-section">
+      <h2>✨ NEW Interactive Tools</h2>
+      <div class="page-links">
+        <a href="citation-builder.html" class="page-link highlight">
+          <div class="page-link-title">🎯 Citation Builder</div>
+          <div class="page-link-desc">Drag and drop citation components into correct order - MLA, APA, and CMS formats</div>
+        </a>
+        <a href="in-text-citations.html" class="page-link highlight">
+          <div class="page-link-title">📖 In-Text Citations Guide</div>
+          <div class="page-link-desc">Comprehensive guide with examples and practice questions for all three styles</div>
+        </a>
+        <a href="lesson.html?guide=mla&region=comma-castle&difficulty=beginner" class="page-link highlight">
+          <div class="page-link-title">📚 Lesson Mode (Example)</div>
+          <div class="page-link-desc">Pre-quiz educational content with examples and tips</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Game Pages -->
+    <div class="page-section">
+      <h2>🎮 Game & Learning</h2>
+      <div class="page-links">
+        <a href="game.html?guide=mla&region=comma-castle&difficulty=beginner" class="page-link">
+          <div class="page-link-title">Game Interface (Example Quiz)</div>
+          <div class="page-link-desc">Interactive quiz with multiple question types</div>
+        </a>
+        <a href="profile.html" class="page-link">
+          <div class="page-link-title">Profile & Progress</div>
+          <div class="page-link-desc">View badges, scores, and achievements</div>
+        </a>
+        <a href="help.html" class="page-link">
+          <div class="page-link-title">Help & Instructions</div>
+          <div class="page-link-desc">How to play and scoring system</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Test Links -->
+    <div class="page-section">
+      <h2>🔗 Quick Test Links</h2>
+      <div class="page-links">
+        <a href="lesson.html?guide=apa&region=apa-abyss&difficulty=intermediate" class="page-link">
+          <div class="page-link-title">APA Lesson - Intermediate</div>
+          <div class="page-link-desc">Test lesson mode with APA style</div>
+        </a>
+        <a href="game.html?guide=cms&region=cms-city&difficulty=expert" class="page-link">
+          <div class="page-link-title">CMS Quiz - Expert</div>
+          <div class="page-link-desc">Try expert level CMS questions</div>
+        </a>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: var(--spacing-3xl); padding-top: var(--spacing-2xl); border-top: 2px solid var(--color-bg);">
+      <p style="color: var(--color-text-light);">
+        <strong>Total Pages:</strong> 10 HTML files | <strong>Status:</strong> All functional ✓
+      </p>
+    </div>
+  </div>
+</body>
+</html>
